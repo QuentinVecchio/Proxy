@@ -17,6 +17,10 @@ int main(){
 	load();
 
 	printf("********************************\n");
+	printf("Affiche main\n");
+	affiche(&Auth_Var_Liste_Blanche, t);
+	printf("********************************\n");
+
 	search("http://www.jeuxvideo.fr/");
 
 }

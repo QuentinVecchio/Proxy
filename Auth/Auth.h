@@ -31,6 +31,7 @@ Liste Auth_Var_Liste_Blanche;
 
 Liste Auth_Var_Liste_Noire;
 
+void t(void* a);
 
 void init(Auth_Conf conf);
 
