@@ -2,7 +2,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "pthread.h"
-
+#include <string.h>
 void init(Auth_Conf conf){
 	printf("Liste blanche:\n%s\n", conf.listeBlanche);
 	printf("Liste noire:\n%s\n", conf.listeNoire);
@@ -12,8 +12,8 @@ void init(Auth_Conf conf){
 }
 
 void t(void* a){
-	Auth_Lien* tmp = (Auth_Lien*) a;
-	printf("%s\n", tmp->lien);
+	char* tmp = *((char**) &a);
+	printf("Valeur : %s \n", tmp);
 }
 
 
@@ -50,10 +50,10 @@ void* thread_search(void* arg){
 }
 
 int cmp_lien(void* valeur, void* elt){
-	char* a = (char*) elt;
+	char* a = *((char**) &elt);
 	char* b = (char*) valeur;
 	printf("Comparaison de %s avec %s\n",a,b);
-	return strcmp(a,b);
+	return !strcmp(a,b);
 }
 
 int search(char* lien){
@@ -95,20 +95,13 @@ void loadListe(char* lien, Liste* l){
 		perror("Impossible d'ouvrir le fichier\n");
 		exit(EXIT_FAILURE);
 	}
-	
-Auth_Lien a_lien;
+
 	while(feof(fd) == 0){
 		char ligne[255];
 
 		fscanf(fd,"%s\n",ligne);
-		Auth_Lien a_lien;
-		a_lien.lien = ligne;
-		addElt(l, (void*) &a_lien);
+		addElt(l, (void*) strdup(ligne));
 	}
-		char aa[] = "coucou";
-		Auth_Lien aaaa;
-		aaaa.lien = aa;
-		addElt(l, (void*) &aaaa);
 	printf("Affiche\n");
 	affiche(l, t);
 	
