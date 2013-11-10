@@ -15,4 +15,8 @@ int main(){
 	init(a_C);
 	printf("********************************\n");
 	load();
+
+	printf("********************************\n");
+	search("http://www.jeuxvideo.fr/");
+
 }
