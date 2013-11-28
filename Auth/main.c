@@ -13,14 +13,16 @@ int main(){
 	a_C.listeNoire = lN;
 
 	init(a_C);
-	printf("********************************\n");
-	load();
 
-	printf("********************************\n");
-	printf("Affiche main\n");
-	affiche(&Auth_Var_Liste_Blanche, t);
-	printf("********************************\n");
+	if(load()){
+		printf("Erreur du chargement\n");
+		return 0;
+	}
 
-	search("http://www.jeuxvideo.fr/");
-
+	int isAuth = isAuthorized("http://www.jeuxvideo.fr/");
+	if(isAuth){
+		printf("Lien autorisé\n");
+	}else{
+		printf("Lien non autorisé\n");
+	}
 }

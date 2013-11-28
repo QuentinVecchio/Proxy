@@ -3,31 +3,54 @@
 #include "stdlib.h"
 #include "pthread.h"
 #include <string.h>
+
+
 void init(Auth_Conf conf){
 	printf("Liste blanche:\n%s\n", conf.listeBlanche);
 	printf("Liste noire:\n%s\n", conf.listeNoire);
+
 	Auth_Var_Conf = conf;
 	initListe(&Auth_Var_Liste_Blanche);
 	initListe(&Auth_Var_Liste_Noire);
 }
 
-void t(void* a){
-	char* tmp = *((char**) &a);
-	printf("Valeur : %s \n", tmp);
-}
-
-
-void load(){
+int load(){
 	printf("Chargement de la liste blanche\n");
-	loadListe(Auth_Var_Conf.listeBlanche, &Auth_Var_Liste_Blanche);
+	int successA = loadListe(Auth_Var_Conf.listeBlanche, &Auth_Var_Liste_Blanche);
 
 	printf("Chargement de la liste noire\n");
-	loadListe(Auth_Var_Conf.listeNoire, &Auth_Var_Liste_Noire);
+	int successB = loadListe(Auth_Var_Conf.listeNoire, &Auth_Var_Liste_Noire);
 
-	printf("Listes chargées avec succès\n");
-	
+	if(!successA && !successA){
+		printf("Listes chargées avec succès\n");
+		return 0;
+	}else{
+		printf("Erreur lors du chargement d'une (ou plusieurs) liste(s)\n");
+		return 1;
+	}
 }
 
+int loadListe(char* lien, Liste* l){
+	printf("Adresse du fichier: %s\n", lien);
+
+	FILE* fd;
+
+	fd = fopen(lien, "r");
+	if(fd == NULL){
+		perror("Impossible d'ouvrir le fichier\n");
+		return 1;
+	}
+
+	while(feof(fd) == 0){
+		char ligne[255];
+
+		fscanf(fd,"%s\n",ligne);
+		addElt(l, (void*) strdup(ligne));
+	}
+
+	fclose(fd);
+	return 0;
+}
 
 
 
@@ -39,25 +62,20 @@ void* thread_search(void* arg){
 	a_S->index++;
 	pthread_mutex_unlock(&a_S->m_index);
 
-	printf("Index: %d, Valeur: %s\n",index, a_S->lien);
-	printf("Index: %d, Recherche:\n", index);
 	int res = recherche(&a_S->listeRecherche[index],(void*) a_S->lien, a_S->fonctionCmp[index]);
-	if(res){
-		printf("Index: %d, trouvé!\n", index);
-	}else{
-		printf("Index: %d, non trouvé :(\n",index);
-	}
+	a_S->estDansListe[index] = res;
+	pthread_exit(NULL);
 }
 
 int cmp_lien(void* valeur, void* elt){
 	char* a = *((char**) &elt);
 	char* b = (char*) valeur;
-	printf("Comparaison de %s avec %s\n",a,b);
 	return !strcmp(a,b);
 }
 
-int search(char* lien){
+int isAuthorized(char* lien){
 	printf("Recherche du lien: %s\n", lien);
+
 	Auth_Search a_S;
 	a_S.lien = lien;
 	a_S.index = 0;
@@ -80,31 +98,9 @@ int search(char* lien){
 	for(i=0; i < NB_THREAD; i++){
 		pthread_join(t[i], NULL);
 	}
-	return 0;
+	return a_S.estDansListe[0] || a_S.estDansListe[1];
 }
 
 
 
-void loadListe(char* lien, Liste* l){
-	printf("Adresse du fichier: %s\n", lien);
 
-	FILE* fd;
-
-	fd = fopen(lien, "r");
-	if(fd == NULL){
-		perror("Impossible d'ouvrir le fichier\n");
-		exit(EXIT_FAILURE);
-	}
-
-	while(feof(fd) == 0){
-		char ligne[255];
-
-		fscanf(fd,"%s\n",ligne);
-		addElt(l, (void*) strdup(ligne));
-	}
-	printf("Affiche\n");
-	affiche(l, t);
-	
-	fclose(fd);
-
-}
