@@ -12,6 +12,7 @@
 typedef struct{
 	char* listeBlanche;
 	char* listeNoire;
+	char* listeRegle;
 }Auth_Conf;
 
 /**
@@ -62,6 +63,12 @@ Liste Auth_Var_Liste_Blanche;
 *	Liste noire des adresses non autorisées
 */
 Liste Auth_Var_Liste_Noire;
+
+/**
+*	Liste des règles
+*/
+Liste Auth_Var_Liste_Regle;
+
 
 /**
 *	Inititalisation du module Auth
