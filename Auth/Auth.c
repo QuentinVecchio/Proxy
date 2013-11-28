@@ -8,10 +8,12 @@
 void init(Auth_Conf conf){
 	printf("Liste blanche:\n%s\n", conf.listeBlanche);
 	printf("Liste noire:\n%s\n", conf.listeNoire);
+	printf("Liste règles:\n%s\n", conf.listeRegle);
 
 	Auth_Var_Conf = conf;
 	initListe(&Auth_Var_Liste_Blanche);
 	initListe(&Auth_Var_Liste_Noire);
+	initListe(&Auth_Var_Liste_Regle);
 }
 
 int load(){
@@ -21,7 +23,10 @@ int load(){
 	printf("Chargement de la liste noire\n");
 	int successB = loadListe(Auth_Var_Conf.listeNoire, &Auth_Var_Liste_Noire);
 
-	if(!successA && !successA){
+	printf("Chargement de la liste des règles\n");
+	int successC = loadRules(Auth_Var_Conf.listeRegle, &Auth_Var_Liste_Regle);
+
+	if(!successA && !successA && !successC){
 		printf("Listes chargées avec succès\n");
 		return 0;
 	}else{
@@ -66,8 +71,12 @@ int loadRules(char* lien, Liste* l){
 
 	while(feof(fd) == 0){
 		Auth_Regle a_R;
+		printf("Boucle\n");
+		char tmp[2046];
+		fscanf(fd,"%s\n",tmp);
+		//a_R.link = *strsep(&tmp, ",");
 
-		fscanf(fd,"%s %s %d\n",a_R.link, a_R.address, &a_R.status);
+		printf("valeur: %s\n", tmp);
 		addElt(l, (void*) &a_R);
 	}
 
