@@ -53,6 +53,28 @@ int loadListe(char* lien, Liste* l){
 }
 
 
+int loadRules(char* lien, Liste* l){
+	printf("Adresse du fichier: %s\n", lien);
+
+	FILE* fd;
+
+	fd = fopen(lien, "r");
+	if(fd == NULL){
+		perror("Impossible d'ouvrir le fichier\n");
+		return 1;
+	}
+
+	while(feof(fd) == 0){
+		Auth_Regle a_R;
+
+		fscanf(fd,"%s %s %d\n",a_R.link, a_R.address, &a_R.status);
+		addElt(l, (void*) &a_R);
+	}
+
+	fclose(fd);
+	return 0;
+}
+
 
 void* thread_search(void* arg){
 	Auth_Search* a_S = (Auth_Search*) arg;
