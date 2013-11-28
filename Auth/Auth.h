@@ -37,6 +37,16 @@ typedef struct{
 	pthread_mutex_t m_index;
 }Auth_Search;
 
+/**
+*	Structure des règles pour un ordinateur précis
+*/
+typedef struct{
+	char* link;
+	char* address;
+	int 	status;
+}Auth_Regle;
+
+
 
 /**
 *	Variable de configuration du module Auth
@@ -71,6 +81,14 @@ int load();
 *	@return 0, sinon
 */
 int loadListe(char* lien, Liste* l);
+
+/**
+*	Chargement des règles
+*	@return 1, si problème lors de l'ouverture du fichier
+*	@return 0, sinon
+*/
+int loadRules(char* lien, Liste* l);
+
 
 /**
 *	Recherche d'un lien dans les listes
