@@ -22,6 +22,9 @@ typedef struct{
 
 /**
 *	Structure des règles pour un ordinateur précis
+*	link: l'adresse du site web
+*	address, l'adresse IP de l'ordinateur
+*	status, vaut -1 si refus, 1 si autorise
 */
 typedef struct{
 	char* link;
@@ -33,12 +36,15 @@ typedef struct{
 /**
 *	Structure pour rechercher une correspondance
 *	On y retrouve:
-*		- lien, le lien a rechercher dans les listes
-*		- int
+*		- void* params, l'élément qui sert de comparant dans la fonction
+*		- int estDansListe, résultat de la recherche pour chaque thread
+*		- Liste listeRecherche, la liste dans laquelle s'effectuer la recherche pour chaque thread
+*		- void* fonctionCmp, la fonction de comparaison pour chaque thread
+*		- int index, pour donner une liste a chaque thread
+*		- pthread_mutex_t m_index, associé a index
 *	
 */
 typedef struct{
-	char* lien;
 	void* params[NB_THREAD];
 	int estDansListe[NB_THREAD];
 	Liste listeRecherche[NB_THREAD];
@@ -47,7 +53,6 @@ typedef struct{
 	int index;
 	pthread_mutex_t m_index;
 
-	Auth_Regle regle;
 }Auth_Search;
 
 
@@ -120,7 +125,10 @@ void* thread_search(void* arg);
 int cmp_lien(void* valeur, void* elt);
 
 /**
-*
+*	Compare deux structures de type Auth_Regle
+*	@params void* valeur, la strucutre que doit respecter elt
+*	@params void* elt, l'élément a comparer
+*	@return status, le status de la règle
 */
 int cmp_regle(void* valeur, void* elt);
 
@@ -128,9 +136,11 @@ int cmp_regle(void* valeur, void* elt);
 
 /**
 *	Test si le lien est dans une des listes
+*	@params char* lien, le lien du site web
+*	@params char* address, l'adresse IP de la personne qui veut accéder au site
 *	@return 1, si le lien est autorisé
 *	@return 0, sinon
 */
-int isAuthorized(char* lien);
+int isAuthorized(char* lien, char* address);
 
 #endif

@@ -127,11 +127,10 @@ int cmp_regle(void* valeur, void* elt){
 }
 
 
-int isAuthorized(char* lien){
+int isAuthorized(char* lien, char* address){
 	printf("Recherche du lien: %s\n", lien);
 
 	Auth_Search a_S;
-	a_S.lien = lien;
 	a_S.index = 0;
 	pthread_mutex_init(&a_S.m_index, NULL);
 
@@ -146,7 +145,7 @@ int isAuthorized(char* lien){
 
 	Auth_Regle a_R;
 	a_R.link = strdup(lien);
-	a_R.address = strdup("192.168.1.13");
+	a_R.address = address;
 
 	a_S.estDansListe[2] = 0;
 	a_S.fonctionCmp[2]= &cmp_regle;
