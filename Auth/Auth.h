@@ -17,26 +17,8 @@ typedef struct{
 
 /**
 *	NB_THREAD correspond au nombre de recherche simultannée que l'on fait des les fichiers
-*	Pour le moment 2, c'est à dire listeBlanche et listeNoire, a terme on rajoutera listeRegleParticuliere
 */
-#define NB_THREAD 2
-
-/**
-*	Structure pour rechercher une correspondance
-*	On y retrouve:
-*		- lien, le lien a rechercher dans les listes
-*		- int
-*	
-*/
-typedef struct{
-	char* lien;
-	int estDansListe[NB_THREAD];
-	Liste listeRecherche[NB_THREAD];
-	void* fonctionCmp[NB_THREAD];
-
-	int index;
-	pthread_mutex_t m_index;
-}Auth_Search;
+#define NB_THREAD 3
 
 /**
 *	Structure des règles pour un ordinateur précis
@@ -47,6 +29,26 @@ typedef struct{
 	int 	status;
 }Auth_Regle;
 
+
+/**
+*	Structure pour rechercher une correspondance
+*	On y retrouve:
+*		- lien, le lien a rechercher dans les listes
+*		- int
+*	
+*/
+typedef struct{
+	char* lien;
+	void* params[NB_THREAD];
+	int estDansListe[NB_THREAD];
+	Liste listeRecherche[NB_THREAD];
+	void* fonctionCmp[NB_THREAD];
+
+	int index;
+	pthread_mutex_t m_index;
+
+	Auth_Regle regle;
+}Auth_Search;
 
 
 /**
@@ -116,6 +118,13 @@ void* thread_search(void* arg);
 *	@return 0, si les deux chaines sont différentes
 */
 int cmp_lien(void* valeur, void* elt);
+
+/**
+*
+*/
+int cmp_regle(void* valeur, void* elt);
+
+
 
 /**
 *	Test si le lien est dans une des listes
