@@ -27,14 +27,10 @@ int main(){
 		return 0;
 	}
 
-	int isAuth = isAuthorized("http://www.jeuxvideo.com/");
+	int isAuth = isAuthorized("http://www.jeuxvideo.com/", "192.168.1.13");
 	if(isAuth > 0){
 		printf("Lien autorisé\n");
 	}else{
 		printf("Lien non autorisé\n");
 	}
-
-
-
-
 }
