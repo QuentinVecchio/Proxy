@@ -26,4 +26,4 @@ clean :
 
 #efface les fichier '*.o' plus l'executable 'Sudoku'
 reset : clean
-	rm -rf Sudoku
+	rm -rf ProxyMQ

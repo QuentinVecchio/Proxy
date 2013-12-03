@@ -38,8 +38,9 @@ void recupHost(char *requete, char *lien)
 //Fonction recupTitrePage.
 // Prend en paramètre une requete http et le nom.
 //Cette fonction renvoie le nom de la page web voulu.
-void recupTitrePage(char requete[], char nom[])
+void recupTitrePage(char *requete, char *nom)
 {
+    printf("test");
     char *pointeur, *repere;
     int i=0;
     pointeur =  strstr(requete,"GET ");
@@ -62,7 +63,7 @@ void recupTitrePage(char requete[], char nom[])
 //Fonction recupExtension.
 // Prend en paramètre le nom de la page.
 //Cette fonction donne l'extension de la page
-void recupExtension(char nom[],char extension[])
+void recupExtension(char *nom,char *extension)
 {
 	int i = strlen(nom),y = 0;
     	while(nom[i] != '.')
@@ -151,11 +152,12 @@ void *client(void *arg)
 	//Extraction de l'host dans la requete HTTP reçu
     recupHost(requeteHTTPClient,host);
 	//Extraction du nom de la page web demandée
+	printf("test");
     recupTitrePage(requeteHTTPClient,nomPage);
 	//Extraction de l'extension de la page web demandée
-    recupExtension(nomPage,extension);
+    //recupExtension(nomPage,extension);
 	//Ajout dans les logs
-    logs(host,nomPage,inet_ntoa(structSock->sockAddrClient->sin_addr));
+    //logs(host,nomPage,inet_ntoa(structSock->sockAddrClient->sin_addr));
 	if(*sockServeurWeb != INVALID_SOCKET)
 	{
 		/*//Récuperation de l'adresse IP associé à l'host
