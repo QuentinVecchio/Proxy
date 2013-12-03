@@ -107,8 +107,8 @@ int main(int argc, char *argv[])
 		printf("Configuration socket proxy ...\n");
 		sleep(1);
 		//Création socket proxy
-        sockProxy = socket(AF_INET, SOCK_STREAM, 0);
-        setsockopt(sockProxy, SOL_SOCKET, SO_REUSEADDR, &options, sizeof(int));
+        	sockProxy = socket(AF_INET, SOCK_STREAM, 0);
+        	setsockopt(sockProxy, SOL_SOCKET, SO_REUSEADDR, &options, sizeof(int));
 		if(sockProxy != INVALID_SOCKET)
 		{
 			printf("La socket proxy %d est configurée\n",sockProxy);

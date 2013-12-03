@@ -65,12 +65,12 @@
     //Fonction recupTitrePage.
     // Prend en paramètre une requete http et le nom.
     //Cette fonction renvoie le nom de la page web voulu.
-    void recupTitrePage(char requete[], char nom[]);
+    void recupTitrePage(char *requete, char *nom);
 
     //Fonction recupExtension.
     // Prend en paramètre le nom de la page web.
     //Cette fonction donne  l'extension de la page web demandée
-    void recupExtension(char nom[],char extension[])
+    void recupExtension(char *nom,char *extension);
 
     //Fonction contenuFichier.
     // Prend en paramètre un lien vers un fichier et la taille du contenu.
