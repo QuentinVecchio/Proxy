@@ -70,14 +70,22 @@ int loadRules(char* lien, Liste* l){
 	}
 
 	while(feof(fd) == 0){
-		Auth_Regle a_R;
-		printf("Boucle\n");
-		char tmp[2046];
-		fscanf(fd,"%s\n",tmp);
-		//a_R.link = *strsep(&tmp, ",");
+		Auth_Regle *a_R = malloc(sizeof(Auth_Regle));
 
-		printf("valeur: %s\n", tmp);
-		addElt(l, (void*) &a_R);
+		char *tmp = malloc(sizeof(char)*2046);
+		char *lien = malloc(sizeof(char)*500);
+		char *ip = malloc(sizeof(char)*20);
+		char *valeur = malloc(sizeof(char)*5);
+
+		fscanf(fd,"%s\n",tmp);
+		lien = strsep(&tmp, ",");
+		ip = strsep(&tmp, ",");
+		valeur = strsep(&tmp, ",");
+
+		a_R->link = lien;
+		a_R->address = ip;
+		a_R->status = atoi(valeur);
+		addElt(l, (void*) a_R);
 	}
 
 	fclose(fd);
@@ -93,7 +101,7 @@ void* thread_search(void* arg){
 	a_S->index++;
 	pthread_mutex_unlock(&a_S->m_index);
 
-	int res = recherche(&a_S->listeRecherche[index],(void*) a_S->lien, a_S->fonctionCmp[index]);
+	int res = recherche(&a_S->listeRecherche[index],(void*) a_S->params[index], a_S->fonctionCmp[index]);
 	a_S->estDansListe[index] = res;
 	pthread_exit(NULL);
 }
@@ -104,6 +112,21 @@ int cmp_lien(void* valeur, void* elt){
 	return !strcmp(a,b);
 }
 
+int cmp_regle(void* valeur, void* elt){
+	Auth_Regle *v = (Auth_Regle*) valeur;
+	Auth_Regle *e = (Auth_Regle*) elt;
+
+	if(strcmp(v->link, e->link)){
+		return 0;
+	}
+
+	if(strcmp(v->address, e->address)) return 0;
+
+	return e->status;
+
+}
+
+
 int isAuthorized(char* lien){
 	printf("Recherche du lien: %s\n", lien);
 
@@ -112,24 +135,41 @@ int isAuthorized(char* lien){
 	a_S.index = 0;
 	pthread_mutex_init(&a_S.m_index, NULL);
 
-	int i;
-	for(i=0; i < NB_THREAD; i++){
-		a_S.estDansListe[i] = 0;
-		a_S.fonctionCmp[i]= &cmp_lien;
-	}
+	a_S.estDansListe[0] = 0;
+	a_S.fonctionCmp[0]= &cmp_lien;
+	a_S.params[0] = (void*) lien;
+
+
+	a_S.estDansListe[1] = 0;
+	a_S.fonctionCmp[1]= &cmp_lien;
+	a_S.params[1] = (void*) lien;
+
+	Auth_Regle a_R;
+	a_R.link = strdup(lien);
+	a_R.address = strdup("192.168.1.13");
+
+	a_S.estDansListe[2] = 0;
+	a_S.fonctionCmp[2]= &cmp_regle;
+	a_S.params[2] = (void*) &a_R;
+
 
 	a_S.listeRecherche[0] = Auth_Var_Liste_Blanche;
 	a_S.listeRecherche[1] = Auth_Var_Liste_Noire;
+	a_S.listeRecherche[2] = Auth_Var_Liste_Regle;
 	pthread_t t[NB_THREAD];
 	
-	for(i=0; i < NB_THREAD; i++){
-		pthread_create(&t[i], NULL, thread_search, (void*) &a_S);
-	}
+	int i;
+	pthread_create(&t[0], NULL, thread_search, (void*) &a_S);
+	pthread_create(&t[1], NULL, thread_search, (void*) &a_S);
+	pthread_create(&t[2], NULL, thread_search, (void*) &a_S);
 
 	for(i=0; i < NB_THREAD; i++){
 		pthread_join(t[i], NULL);
 	}
-	return a_S.estDansListe[0] || a_S.estDansListe[1];
+
+	if(a_S.estDansListe[2]) return a_S.estDansListe[2];
+
+	return a_S.estDansListe[0] || !a_S.estDansListe[1];
 }
 
 

@@ -4,7 +4,7 @@
 
 void afficheRegle(void* arg){
 	Auth_Regle* regle = (Auth_Regle*) arg;
-	printf("Affichage:\n lien: %s\nadresse: %s\nstatus: %d\n", regle->link, regle->address, regle->status);
+	printf("Affichage:\nlien: %s\nadresse: %s\nstatus: %d\n", regle->link, regle->address, regle->status);
 }
 
 
@@ -27,14 +27,13 @@ int main(){
 		return 0;
 	}
 
-	int isAuth = isAuthorized("http://www.jeuxvideo.fr/");
-	if(isAuth){
+	int isAuth = isAuthorized("http://www.jeuxvideo.com/");
+	if(isAuth > 0){
 		printf("Lien autorisé\n");
 	}else{
 		printf("Lien non autorisé\n");
 	}
-	printf("Affichage\n");
-	affiche(&Auth_Var_Liste_Regle, &afficheRegle);
+
 
 
 
