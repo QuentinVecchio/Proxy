@@ -41,4 +41,12 @@ void affiche(Liste* l,  void (*fonc)(void*));
 */
 int recherche(Liste* l,void* elt, int (*fonc)());
 
+/**
+*	Libère la liste
+*	@params Liste* l, la liste a supprimer
+*/
+void deleteListe(Liste* l);
+
+
+
 #endif
