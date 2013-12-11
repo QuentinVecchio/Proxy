@@ -4,7 +4,8 @@
 
 int main(){
 	printf("Bienvenue dans la partie cache\n");
-	initCache(10);
+	char tmp[] = "./tmp";
+	initCache(10, tmp);
 
 	closeCache();
 	return 0;
