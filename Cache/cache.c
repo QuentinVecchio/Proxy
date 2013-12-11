@@ -23,6 +23,7 @@ void closeCache(){
 	if(remove_directory("./tmp"))perror("Suppression dossier tmp");
 	else printf("Dossier supprimé avec succès\n");
 
+	deleteListe(&Cache_Var_Liste_Cache);
 }
 
 int remove_directory(char const *name)
