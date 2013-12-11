@@ -14,7 +14,7 @@ void initCache(int limit, char* tmp){
 	Cache_Var_Conf.tmp = tmp;
 
 
-	if(mkdir(Cache_Var_Conf.tmp, 0777)){
+	if(mkdir(Cache_Var_Conf.tmp, 0777)>0){
 		perror("Erreur lors de la création du dossier\n");	
 	}else{
 		printf("Dossier de cache crée avec succès\n");
@@ -33,8 +33,6 @@ void initCache(int limit, char* tmp){
 
 
 void closeCache(){
-
-
 
 	pthread_mutex_lock(&m_liste);
 	int i = Cache_Var_Conf.limit;
@@ -83,20 +81,33 @@ void* refresh(void* params){
 }
 
 
-Cache_Elt generate(char* url){
-	Cache_Elt elt;
-	elt.url = url;
-
-	sprintf(elt.path, "%d%s", (int)time(NULL), ".tmp");
-	elt.timestamp = time(NULL);
-	pthread_mutex_init(&elt.m, NULL);
+Cache_Elt* generate(char* url){
+	Cache_Elt* elt = malloc(sizeof(Cache_Elt));
+	elt->url = url;
+	
+	elt->path = malloc(sizeof(char)*2048);
+	sprintf(elt->path, "%d%s", (int)time(NULL), ".tmp");
+	elt->timestamp = time(NULL);
+	pthread_mutex_init(&elt->m, NULL);
 	
 	return elt;
 }
 
 
 void addEltCache(Cache_Elt elt){
-	addElt(&Cache_Var_Liste_Cache, (void*) &elt);
+	int i = Cache_Var_Conf.limit;
+	while(i){
+		sem_wait(&s_liste);
+		i--;
+	}
+	//Cache_Elt tmp = elt;
+	//addElt(&Cache_Var_Liste_Cache, (void*) &tmp);
+
+	i = Cache_Var_Conf.limit;
+	while(i){
+		sem_post(&s_liste);
+		i--;
+	}
 }
 
 

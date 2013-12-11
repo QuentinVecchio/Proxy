@@ -7,9 +7,11 @@ int main(){
 	char tmp[] = "./tmp";
 	initCache(10, tmp);
 
-	Cache_Elt e;
+	Cache_Elt* e;
+	int i = 2;
 	e = generate("test");
-	addEltCache(e);
+	addEltCache(*e);
+
 
 	closeCache();
 	return 0;
