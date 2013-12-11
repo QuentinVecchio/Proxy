@@ -69,7 +69,7 @@ void* refresh(void* params);
 /**
 *	Génération d'une entrée du cache
 */
-Cache_Elt generate(char* url);
+Cache_Elt* generate(char* url);
 
 /**
 *	Fonction d'ajout d'un élément dans le cache
