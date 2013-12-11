@@ -95,6 +95,11 @@ Cache_Elt generate(char* url){
 }
 
 
+void addEltCache(Cache_Elt elt){
+	addElt(&Cache_Var_Liste_Cache, (void*) &elt);
+}
+
+
 int remove_directory(char const *name)
 {
     DIR *directory;          

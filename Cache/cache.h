@@ -71,6 +71,13 @@ void* refresh(void* params);
 */
 Cache_Elt generate(char* url);
 
+/**
+*	Fonction d'ajout d'un élément dans le cache
+*	Cette fonction n'ajoute que l'information
+*	Elle n'écrit en aucun cas sur le disque !
+*	@params Cache_Elt, l'élément à ajouter
+*/
+void addEltCache(Cache_Elt elt);
 
 /**
 *	Suppression récursive du dossier

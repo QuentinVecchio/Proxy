@@ -9,7 +9,7 @@ int main(){
 
 	Cache_Elt e;
 	e = generate("test");
-	printf("%s %s %d\n", e.url, e.path, e.timestamp);
+	addEltCache(e);
 
 	closeCache();
 	return 0;
