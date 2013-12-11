@@ -7,6 +7,10 @@ int main(){
 	char tmp[] = "./tmp";
 	initCache(10, tmp);
 
+	Cache_Elt e;
+	e = generate("test");
+	printf("%s %s %d\n", e.url, e.path, e.timestamp);
+
 	closeCache();
 	return 0;
 }

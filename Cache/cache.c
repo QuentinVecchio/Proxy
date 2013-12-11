@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <dirent.h>
 #include <string.h>
+#include <time.h>
 #include "cache.h"
 
 void initCache(int limit, char* tmp){
@@ -81,7 +83,16 @@ void* refresh(void* params){
 }
 
 
+Cache_Elt generate(char* url){
+	Cache_Elt elt;
+	elt.url = url;
 
+	sprintf(elt.path, "%d%s", (int)time(NULL), ".tmp");
+	elt.timestamp = time(NULL);
+	pthread_mutex_init(&elt.m, NULL);
+	
+	return elt;
+}
 
 
 int remove_directory(char const *name)

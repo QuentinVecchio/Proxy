@@ -5,10 +5,23 @@
 #include "pthread.h"
 #include "semaphore.h"
 
+/**
+*	Structure de configuration du module de Cache
+*/
 typedef struct{
 	int limit;
 	char *tmp;
 }Cache_Conf;
+
+/**
+*	Elément dans le cache
+*/
+typedef struct{
+	char* url;
+	char* path;
+	int timestamp;
+	pthread_mutex_t m;
+}Cache_Elt;
 
 /**
 *	Configuration du module de cache
@@ -53,6 +66,10 @@ void closeCache();
 */
 void* refresh(void* params);
 
+/**
+*	Génération d'une entrée du cache
+*/
+Cache_Elt generate(char* url);
 
 
 /**
