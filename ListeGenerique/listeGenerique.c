@@ -38,6 +38,13 @@ int recherche(Liste* l,void* elt, int (*fonc)()){
 	return 0;
 }
 
+void deleteListe(Liste* l){
+	if((*l) != NULL){
+		deleteListe(&(*l)->suivant);
+		free((*l)->suivant);
+		free((*l)->courant);
+	}
+}
 
 
 
