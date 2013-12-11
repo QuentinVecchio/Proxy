@@ -6,8 +6,10 @@
 #include <string.h>
 #include "cache.h"
 
-void initCache(){
+void initCache(int limit){
 	printf("Initialisation du module de cache\n");
+	Cache_Var_Conf.limit = limit;
+
 
 	if(mkdir("./tmp", 0777)){
 		perror("Erreur lors de la création du dossier\n");	
@@ -15,15 +17,32 @@ void initCache(){
 		printf("Dossier de cache crée avec succès\n");
 	}
 
+	printf("Initialisation de la liste de cache\n");
 	initListe(&Cache_Var_Liste_Cache);
 
+	pthread_mutex_init(&m_liste, NULL);
+
+	sem_init(&s_liste, 0, Cache_Var_Conf.limit);
 }
 
 void closeCache(){
 	if(remove_directory("./tmp"))perror("Suppression dossier tmp");
 	else printf("Dossier supprimé avec succès\n");
 
+
+	pthread_mutex_lock(&m_liste);
+	int i = Cache_Var_Conf.limit;
+	while(i){
+		sem_wait(&s_liste);
+		i--;
+	}
 	deleteListe(&Cache_Var_Liste_Cache);
+
+	i = Cache_Var_Conf.limit;
+	while(i){
+		sem_post(&s_liste);
+		i--;
+	}
 }
 
 int remove_directory(char const *name)
