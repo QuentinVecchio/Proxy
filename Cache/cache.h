@@ -7,6 +7,7 @@
 
 typedef struct{
 	int limit;
+	char *tmp;
 }Cache_Conf;
 
 /**
@@ -37,8 +38,9 @@ pthread_t t_refresh;
 /**
 *	Initialisation du module de cache
 *	@params int limit, limitation du nombre d'accès simultanné au cache
+*	@params char* tmp, chemin vers le dossier tmp
 */
-void initCache(int limit);
+void initCache(int limit, char* tmp);
 
 /**
 *	Fermeture du module de cache

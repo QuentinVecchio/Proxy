@@ -6,12 +6,13 @@
 #include <string.h>
 #include "cache.h"
 
-void initCache(int limit){
+void initCache(int limit, char* tmp){
 	printf("Initialisation du module de cache\n");
 	Cache_Var_Conf.limit = limit;
+	Cache_Var_Conf.tmp = tmp;
 
 
-	if(mkdir("./tmp", 0777)){
+	if(mkdir(Cache_Var_Conf.tmp, 0777)){
 		perror("Erreur lors de la création du dossier\n");	
 	}else{
 		printf("Dossier de cache crée avec succès\n");
@@ -28,9 +29,9 @@ void initCache(int limit){
 	pthread_create(&t_refresh, NULL, refresh, NULL);
 }
 
+
 void closeCache(){
-	if(remove_directory("./tmp"))perror("Suppression dossier tmp");
-	else printf("Dossier supprimé avec succès\n");
+
 
 
 	pthread_mutex_lock(&m_liste);
@@ -39,6 +40,7 @@ void closeCache(){
 		sem_wait(&s_liste);
 		i--;
 	}
+	printf("Suppression de la liste\n");
 	deleteListe(&Cache_Var_Liste_Cache);
 
 	i = Cache_Var_Conf.limit;
@@ -49,7 +51,12 @@ void closeCache(){
 	pthread_mutex_unlock(&m_liste);
 	pthread_join(t_refresh, NULL);
 
+	if(remove_directory(Cache_Var_Conf.tmp))perror("Suppression dossier tmp");
+	else printf("Dossier supprimé avec succès\n");
+
 }
+
+
 
 void* refresh(void* params){
 	printf("Initialiation du refresh\n");
@@ -72,6 +79,8 @@ void* refresh(void* params){
 		printf("J'ai fini\n");
 	}
 }
+
+
 
 
 
