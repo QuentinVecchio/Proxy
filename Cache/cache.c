@@ -23,6 +23,9 @@ void initCache(int limit){
 	pthread_mutex_init(&m_liste, NULL);
 
 	sem_init(&s_liste, 0, Cache_Var_Conf.limit);
+
+	
+	pthread_create(&t_refresh, NULL, refresh, NULL);
 }
 
 void closeCache(){
@@ -43,7 +46,34 @@ void closeCache(){
 		sem_post(&s_liste);
 		i--;
 	}
+	pthread_mutex_unlock(&m_liste);
+	pthread_join(t_refresh, NULL);
+
 }
+
+void* refresh(void* params){
+	printf("Initialiation du refresh\n");
+	while(1){
+		sleep(2);
+		printf("Je m'active\n");
+		int i = Cache_Var_Conf.limit;
+		while(i){
+			sem_wait(&s_liste);
+			i--;
+		}
+		printf("Je travaille\n");
+
+		i = Cache_Var_Conf.limit;
+		while(i){
+			sem_post(&s_liste);
+			i--;
+		}
+		pthread_mutex_unlock(&m_liste);
+		printf("J'ai fini\n");
+	}
+}
+
+
 
 int remove_directory(char const *name)
 {
