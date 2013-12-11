@@ -4,7 +4,7 @@
 
 int main(){
 	printf("Bienvenue dans la partie cache\n");
-	initCache();
+	initCache(10);
 
 	closeCache();
 	return 0;
