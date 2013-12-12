@@ -12,7 +12,7 @@ int main(){
 	e = generate("test");
 	addEltCache(*e);
 
-	Cache_Elt* res = isInCache("ttst");
+	Cache_Elt* res = isInCache("test");
 
 	if(res == NULL){
 		printf("Element non trouvé\n");
