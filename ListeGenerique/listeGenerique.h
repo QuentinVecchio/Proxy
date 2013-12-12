@@ -62,4 +62,12 @@ void deleteListe(Liste* l);
 void* getElt(Liste* l, void* elt, int(*fonc)());
 
 
+/**
+*
+*/
+void keepElt(Liste* l, int(*fonc)());
+
+
+
+
 #endif
