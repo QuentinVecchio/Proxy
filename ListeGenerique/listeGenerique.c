@@ -42,9 +42,16 @@ void deleteListe(Liste* l){
 	if((*l) != NULL){
 		deleteListe(&(*l)->suivant);
 		free((*l)->suivant);
-		free((*l)->courant);
 	}
 }
 
+void* getElt(Liste* l, void* elt, int(*fonc)()){
+	if((*l) != NULL){
+		if((*fonc)(elt, (*l)->courant)) return (*l)->courant;
+		else return getElt(&((*l)->suivant), elt, fonc);
+	}
+
+	return NULL;
+}
 
 

@@ -100,14 +100,34 @@ void addEltCache(Cache_Elt elt){
 		sem_wait(&s_liste);
 		i--;
 	}
-	//Cache_Elt tmp = elt;
-	//addElt(&Cache_Var_Liste_Cache, (void*) &tmp);
+	Cache_Elt* tmp = malloc(sizeof(Cache_Elt));
+	tmp = &elt;
+	addElt(&Cache_Var_Liste_Cache, (void*) tmp);
 
 	i = Cache_Var_Conf.limit;
 	while(i){
 		sem_post(&s_liste);
 		i--;
 	}
+}
+
+int cmp_cache(void* elt, void* cmp){
+	Cache_Elt* e = (Cache_Elt*) elt;
+	Cache_Elt* c = (Cache_Elt*) cmp;
+
+	if(!strcmp(e->url, c->url)) return 1;
+	else return 0;
+}
+
+
+Cache_Elt* isInCache(char* url){
+	Cache_Elt elt;
+	elt.url = url;
+	void* t = getElt(&Cache_Var_Liste_Cache, (void*) &elt, cmp_cache);
+	Cache_Elt* res;
+	if(t==NULL) res= NULL;
+	else res = (Cache_Elt*) t;
+	return res;
 }
 
 
