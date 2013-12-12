@@ -54,4 +54,27 @@ void* getElt(Liste* l, void* elt, int(*fonc)()){
 	return NULL;
 }
 
+void keepElt(Liste* l, int(*fonc)()){
+	if((*l) !=NULL){
+		if(fonc((*l)->courant)){
+			Element* elt = (*l);
+			(*l) = (*l)->suivant;
+			free(elt);
+		}else{
+			Liste* tmp = &(*l)->suivant;
+			Liste* avant = l;
+			do{
+				printf("oui\n");
+				if(fonc((*tmp)->courant)){
+					printf("Efface\n");
+					Element* elt = (*tmp);
+					(*avant)->suivant =(*tmp)->suivant;
+					free(elt);
+				}
+				avant = &(*avant)->suivant;
+				tmp = &(*tmp)->suivant;
+			}while((*tmp)->suivant);
+		}
+	}
+}
 
