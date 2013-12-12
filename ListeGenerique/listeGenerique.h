@@ -47,6 +47,19 @@ int recherche(Liste* l,void* elt, int (*fonc)());
 */
 void deleteListe(Liste* l);
 
+/**
+*	Fonction qui renvoit un pointeur vers un élément de la liste si la fonction fonc la repère
+*	@params Liste* l, la liste où s'effectue la recherche
+*	@params void* elt, l'élément qui sert de comparaison
+*	@params int(*fonc)(), la fonction de comparaison
+*			@params void* elt, l'élément de comparaison
+*			@params void* tmp, l'élément a comparer
+*			@return true, si l'élément correspond
+*			@return false, sinon
+*	@return void*, le pointeur vers l'élément s'il se trouve dans la liste
+*	@return NULL, sinon
+*/
+void* getElt(Liste* l, void* elt, int(*fonc)());
 
 
 #endif

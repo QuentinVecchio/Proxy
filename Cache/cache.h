@@ -80,6 +80,16 @@ Cache_Elt* generate(char* url);
 void addEltCache(Cache_Elt elt);
 
 /**
+*	Cette fonction permet de savoir si l'élément est dans le cache ou non
+*	@params char* url, url du fichier distant
+*	@return null, si l'élément ne se trouve pas dans le cache
+*	@return CacheElt*, sinon
+*/
+Cache_Elt* isInCache(char* url);
+
+
+
+/**
 *	Suppression récursive du dossier
 *	@return -1, si le dossier n'est pas supprimé
 */
