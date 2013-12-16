@@ -9,17 +9,24 @@ int main(){
 
 	Cache_Elt* e;
 	int i = 2;
-	e = generate("test");
-	addEltCache(*e);
-
-	Cache_Elt* res = isInCache("test");
-
-	if(res == NULL){
+	/**
+	*	Ajout d'élément aléatoire
+	*/
+	while(1){
+		printf("Ajout\n");
+		int var = rand()%150+1;
+		char* vart = malloc(sizeof(char)*1024);
+		sprintf(vart,"%d", var);
+		e = generate(vart);
+		addEltCache(e);
+		sleep(rand()%5+1);
+	}
+	/*if(res == NULL){
 		printf("Element non trouvé\n");
 	}else{
 		printf("Element trouvé !!!\n");
-	}
-	closeCache();
+	}*/
+	//closeCache();
 	pause();
 	return 0;
 }

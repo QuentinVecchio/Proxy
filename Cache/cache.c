@@ -27,6 +27,7 @@ void initCache(int limit, char* tmp){
 
 	sem_init(&s_liste, 0, Cache_Var_Conf.limit);
 
+	srand(time(NULL));
 	
 	pthread_create(&t_refresh, NULL, refresh, NULL);
 }
@@ -55,7 +56,12 @@ void closeCache(){
 	else printf("Dossier supprimé avec succès\n");
 
 }
-
+int keepEltInCache(void* params){
+	Cache_Elt* elt = (Cache_Elt*) params;
+	printf("url:%s, path: %s, timestamps:%d\n", elt->url, elt->path, elt->timestamp);
+	//Ajouter la suppression sur le disque(mutex)
+	return  time(NULL)>elt->timestamp+10;
+}
 
 
 void* refresh(void* params){
@@ -69,7 +75,7 @@ void* refresh(void* params){
 			i--;
 		}
 		printf("Je travaille\n");
-
+		keepElt(&Cache_Var_Liste_Cache, keepEltInCache);
 		i = Cache_Var_Conf.limit;
 		while(i){
 			sem_post(&s_liste);
@@ -82,26 +88,29 @@ void* refresh(void* params){
 
 
 Cache_Elt* generate(char* url){
+	static id = 0;
+	printf("Valeur de id:%d\n", id);
 	Cache_Elt* elt = malloc(sizeof(Cache_Elt));
 	elt->url = url;
 	
 	elt->path = malloc(sizeof(char)*2048);
-	sprintf(elt->path, "%d%s", (int)time(NULL), ".tmp");
+	sprintf(elt->path, "%d_%d%s", (int)time(NULL),id, ".tmp");
 	elt->timestamp = time(NULL);
 	pthread_mutex_init(&elt->m, NULL);
 	
+	id = (id+1)%20;
 	return elt;
 }
 
 
-void addEltCache(Cache_Elt elt){
+void addEltCache(Cache_Elt* elt){
 	int i = Cache_Var_Conf.limit;
 	while(i){
 		sem_wait(&s_liste);
 		i--;
 	}
 	Cache_Elt* tmp = malloc(sizeof(Cache_Elt));
-	tmp = &elt;
+	tmp = elt;
 	addElt(&Cache_Var_Liste_Cache, (void*) tmp);
 
 	i = Cache_Var_Conf.limit;

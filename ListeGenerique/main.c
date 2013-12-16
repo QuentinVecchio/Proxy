@@ -9,7 +9,7 @@ void f_affiche(void* elt){
 
 int keep(void*elt){
 	char* tmp= (char*) elt;
-	return !strcmp(tmp, "tata");
+	return !strcmp(tmp, "toto");
 }
 
 int f_recherche(void* valeur, void* elt){
@@ -32,8 +32,6 @@ int main(){
 
 	addElt(&l, (void*) &t1);
 	addElt(&l, (void*) &t2);
-	addElt(&l, (void*) &t2);
-	addElt(&l, (void*) &t3);
 	affiche(&l, &f_affiche);
 	printf("\n");
 	keepElt(&l, keep);

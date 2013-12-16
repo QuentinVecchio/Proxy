@@ -61,6 +61,14 @@ void initCache(int limit, char* tmp);
 void closeCache();
 
 /**
+*	Fonction qui détermine si l'élément dans le cache est obsolète ou non
+*	@params void* params, l'élément courant a tester
+*	@return 0 si l'élément est a garder
+*	@return 1 si l'élément doit être supprimé de la liste
+*/
+int keepEltInCache(void* params);
+
+/**
 *	Fonction qui raffraifit le cache
 *	Supprime les données en cache une fois le temps écoulé
 */
@@ -68,6 +76,7 @@ void* refresh(void* params);
 
 /**
 *	Génération d'une entrée du cache
+*	@params char* url, l'url de la page qui sera mise en cache
 */
 Cache_Elt* generate(char* url);
 
@@ -77,7 +86,7 @@ Cache_Elt* generate(char* url);
 *	Elle n'écrit en aucun cas sur le disque !
 *	@params Cache_Elt, l'élément à ajouter
 */
-void addEltCache(Cache_Elt elt);
+void addEltCache(Cache_Elt* elt);
 
 /**
 *	Cette fonction permet de savoir si l'élément est dans le cache ou non
