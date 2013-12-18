@@ -19,7 +19,7 @@
 	#define INVALID_SOCKET -1
 	#define SOCKET_ERROR -1
 	#define closesocket(s) close (s)
-	#define PORT 2107
+	#define PORT 65000
 	#define TAILLE 1000000
 	#define M 10//Nombre de limitation de connexion
 //Redéfnition de types
@@ -82,6 +82,25 @@
 		printf("--------------%d-------------\n",n);
 		return n;
 	}
+	//Fonction nombreOctetRequete.
+        // Prend en paramètre une requete http.
+        //Cette fonction renvoie le nombre d'octet d'une requete.
+	void enleveRequete(char requete[], char pageWeb[])
+        {
+                char *pointeur, *repere;
+		int i=0;
+                pointeur =  strstr(requete,"<!");
+                if(pointeur != NULL)
+                {
+			while(*pointeur != '\0')
+			{
+				pageWeb[i] = *pointeur;
+				pointeur++;
+                		i++;
+			}
+                }
+		printf("Page Web : %s\n",pageWeb);
+        }
 //-------------------------------------------Fonctions thread---------------------------------
 	//Fonction connexionClient qui prend en parametre une structure structSocketClient
 	//La fonction gère la connexion
@@ -89,7 +108,8 @@ void *client(void *arg)
 {
 	//Variables
 		char* requeteHTTPClient = calloc(1024,sizeof(char));
-		char* reponseServeur = calloc(1024,sizeof(char));
+		char* requeteHTTPServeur = calloc(1024,sizeof(char));
+		char* pageWeb = calloc(1024,sizeof(char));
 		char* host = calloc(1024,sizeof(char));
 	//Création de la nouvelle structure	
 		structSocketClient *structSock = (structSocketClient *) arg;
@@ -111,47 +131,54 @@ void *client(void *arg)
 	{
 		//Récuperation de l'adresse IP associé à l'host
 			struct addrinfo *structAddrIP;
-			if(getaddrinfo(host,NULL,NULL,&structAddrIP) != 0)
+			if(getaddrinfo("graoully4.iutmetz.ad.univ-lorraine.fr",NULL,NULL,&structAddrIP) != 0)
 			{
 				perror("Erreur getaddrinfo");
 				exit(1);
 			}
 		//Configuration socket serveur web
 			memcpy(sockAddrServeurWeb,structAddrIP->ai_addr,sockAddrServeurWebSize);
+			//sockAddrServeurWeb->sin_addr.s_addr=inet_addr("172.24.159.253");
 			sockAddrServeurWeb->sin_family = AF_INET;
-			sockAddrServeurWeb->sin_port = htons(80);
-			freeaddrinfo(structAddrIP);
+			sockAddrServeurWeb->sin_port = htons(3128);
+			//freeaddrinfo(structAddrIP);
 		//Connexion au serveur web demandé
 			printf("Connexion au serveur distant ..\n");
 			connect(*sockServeurWeb,(SOCKADDR*)sockAddrServeurWeb,sockAddrServeurWebSize);
 		//Envoie de la requete HTTP au serveur web
 			printf("Envoie de la requete http ... \n");
-			send(*sockServeurWeb,requeteHTTPClient,1024*sizeof(char),0);	
+			send(*sockServeurWeb,requeteHTTPClient,1024*1024*sizeof(char),0);
 		//Réception de la requete HTTP et de la pageWeb du serveur web
-			printf("Reception de la page web ... \n");			
+			printf("Reception de la page web ... \n");
 			int length = 0;
 			int recu = 0;
-			while((recu = recv(*sockServeurWeb,reponseServeur + length,1024,0)) > 0)
+			FILE *f = NULL;
+			f = fopen("pageTest.html","w+");
+			while((recu = recv(*sockServeurWeb,requeteHTTPServeur + length,1024,0)) > 0)
 			{
 				length += recu;
-				reponseServeur = realloc(reponseServeur,(1024 + length)*sizeof(char));
+				requeteHTTPServeur = realloc(requeteHTTPServeur,(1024 + length)*sizeof(char));
 			}
-			puts(reponseServeur);
+			pageWeb = realloc(pageWeb,(1024 + length)*sizeof(char));
+			enleveRequete(requeteHTTPServeur,pageWeb);
+			fprintf(f,"%s\n",pageWeb);
+			fclose(f);
 		//Envoie de la requête HTTP au client
 			printf("Envoie de la page web au client ...\n");
-			send(*structSock->socketClient,reponseServeur,sizeof(reponseServeur),0);		
+			//printf("%s\n",pageWeb);
+			send(*structSock->socketClient,pageWeb,sizeof(char)*length,0);
 	}
 	else
 	{
 
-	}	
+	}
 	printf("Fin de traitement.\n");
 	//Libération de la mémoire
 		closesocket(*structSock->socketClient);
 		closesocket(*sockServeurWeb);
 		free(requeteHTTPClient);
 		free(host);
-		free(reponseServeur);
+		free(pageWeb);
 		free(sockServeurWeb);
 		free(sockAddrServeurWeb);
 		free(structSock->socketClient);
