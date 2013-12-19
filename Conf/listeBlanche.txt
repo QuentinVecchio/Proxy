@@ -1,5 +1,6 @@
-http://www.google.fr
-http://www.apple.com
-http://www.viedemerde.fr/
-http://twitter.com/
-http://bitbucket.org
+www.google.fr
+www.apple.com
+www.viedemerde.fr
+www.twitter.com
+www.bitbucket.org
+www.lequipe.fr

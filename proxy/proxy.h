@@ -12,6 +12,12 @@
 //Bibliothèques système
 	#include <pthread.h>
 	#include <semaphore.h>
+//Bibliothèques cache
+	#include "../Cache/cache.h"
+//Bibliothèques Auth
+	#include "../Auth/Auth.h"
+//Bibliothèques Liste
+	#include "../ListeGenerique/listeGenerique.h" 
 //Bibliothèques autres
 	#include <time.h>
 	#include <string.h>
@@ -19,6 +25,8 @@
 	#define INVALID_SOCKET -1
 	#define SOCKET_ERROR -1
 	#define closesocket(s) close (s)
+	#define TAILLE_PAGE_TELECHARGEMENT 100000
+	#define TAILLE_PAGE_AUTH 100000
 	#define PORT 65000
 	#define TAILLE 1000000
 	#define M 10//Nombre de limitation de connexion
@@ -30,7 +38,8 @@
 	typedef struct
 	{
 		SOCKET *socketClient;
-		SOCKADDR_IN *sockAddrClient;		
+		SOCKADDR_IN *sockAddrClient;
+		Auth_Conf a_C;
 	}structSocketClient;
 //Variables déclarée globalement
 	sem_t semaphoreSocket;
@@ -42,7 +51,7 @@
 	{
 		printf("Requete : \n%s\n",requete);
 		char *pointeur;
-		int i=0;	
+		int i=0;
 		pointeur =  strstr(requete,"Host: ");
 		if(pointeur != NULL)
 		{
@@ -101,6 +110,13 @@
                 }
 		printf("Page Web : %s\n",pageWeb);
         }
+	//Fonction verifieTelechargement.
+        // Prend en paramètre une requete http.
+        //Cette fonction renvoie si c'est un téléchargement ou pas.
+        int verifieTelechargement(char requete[])
+        {
+        	return 0;
+        }
 //-------------------------------------------Fonctions thread---------------------------------
 	//Fonction connexionClient qui prend en parametre une structure structSocketClient
 	//La fonction gère la connexion
@@ -111,7 +127,7 @@ void *client(void *arg)
 		char* requeteHTTPServeur = calloc(1024,sizeof(char));
 		char* pageWeb = calloc(1024,sizeof(char));
 		char* host = calloc(1024,sizeof(char));
-	//Création de la nouvelle structure	
+	//Création de la nouvelle structure
 		structSocketClient *structSock = (structSocketClient *) arg;
 	//Gestion du semaphore on la decremente
 		sem_wait(&semaphoreSocket);
@@ -125,6 +141,33 @@ void *client(void *arg)
 		printf("Un client se connecte avec la socket %d de %s:%d\n",*structSock->socketClient,inet_ntoa(structSock->sockAddrClient->sin_addr), htons(structSock->sockAddrClient->sin_port));
 	//Reception requete HTTP du client
 		recv(*structSock->socketClient,requeteHTTPClient,1024*sizeof(char),0);
+	//Vérification téléchargement
+		if(verifieTelechargement(requeteHTTPClient) == 1)
+		{
+			printf("Telechargement detecte => REFUS\n");
+			//Envoie de la page au client interdisant le téléchargement
+				FILE *fTelechargement = NULL;
+				fTelechargement = fopen("../pagesWeb/pageTelechargement.html","r");
+				if(fTelechargement != NULL)
+				{
+					char* pageTelechargement = malloc(sizeof(char));
+					int l = 0;
+                                        char c;
+                                        do
+                                        {
+                                         	c = fgetc(fTelechargement);
+                                                pageTelechargement[l] = c;
+                                                l++;
+                                               	pageTelechargement = realloc(pageTelechargement,sizeof(char)*l);
+                                        }
+                                       	while(c != EOF);
+					printf("Envoie page Web Telechargement\n");
+					fclose(fTelechargement);
+					send(*structSock->socketClient,pageTelechargement,sizeof(char)*sizeof(char)*l,0);
+				}
+			//Fin de traitement
+				pthread_exit(NULL);
+		}
 	//Extraction de l'host dans la requete HTTP reçu
 		recupHost(requeteHTTPClient,host);
 	if(*sockServeurWeb != INVALID_SOCKET)
@@ -136,6 +179,37 @@ void *client(void *arg)
 				perror("Erreur getaddrinfo");
 				exit(1);
 			}
+		//Vérification de l'accesibilité de la page web
+			int isAuth = isAuthorized(host,inet_ntoa(structSock->sockAddrClient->sin_addr));
+        		if(isAuth <= 0)
+			{
+				printf("Lien non autorisé\n");
+				//Envoie de la page au client interdisant le téléchargement
+                                	FILE *fAuth = NULL;
+                                	fAuth = fopen("../pagesWeb/pageAuth.html","r");
+                                	if(fAuth != NULL)
+                                	{
+                                        	int l = 0;
+						char* pageAuth = malloc(TAILLE_PAGE_AUTH*sizeof(char));
+						char c;
+                                        	do
+                        			{
+							c = fgetc(fAuth);
+							pageAuth[l] = c;
+							l++;
+							printf("%c",c);
+                        			}
+						while(c != EOF);
+						pageAuth[l-1] = '\0';
+						free(pageAuth);
+						printf("Envoie page Web Telechargement\n");
+						fclose(fAuth);
+                                       	 	send(*structSock->socketClient,pageAuth,sizeof(char)*l+1,0);
+                                	}
+                        	//Fin de traitement
+                                	pthread_exit(NULL);
+			}
+                	printf("Lien autorisé\n");
 		//Configuration socket serveur web
 			memcpy(sockAddrServeurWeb,structAddrIP->ai_addr,sockAddrServeurWebSize);
 			//sockAddrServeurWeb->sin_addr.s_addr=inet_addr("172.24.159.253");
@@ -165,7 +239,6 @@ void *client(void *arg)
 			fclose(f);
 		//Envoie de la requête HTTP au client
 			printf("Envoie de la page web au client ...\n");
-			//printf("%s\n",pageWeb);
 			send(*structSock->socketClient,pageWeb,sizeof(char)*length,0);
 	}
 	else
@@ -184,5 +257,7 @@ void *client(void *arg)
 		free(structSock->socketClient);
 		free(structSock->sockAddrClient);
 	//Libération semaphore
-		sem_post(&semaphoreSocket);	
+		sem_post(&semaphoreSocket);
+	//Fin de traitement
+		return NULL;
 }

@@ -6,6 +6,20 @@ int main()
 		int erreur = 0;
 		int sock_err;
 		int options = -1;
+	//Configuration variables authenficication
+		Auth_Conf *a_C = malloc(sizeof(Auth_Conf));
+                char lN[] = "../Conf/listeNoire.txt\0";
+		char lB[] = "../Conf/listeBlanche.txt\0";
+              	char lR[] = "../Conf/listeRegle.txt\0";
+		a_C->listeBlanche = lB;
+                a_C->listeNoire = lN;
+                a_C->listeRegle = lR;
+		init(*a_C);
+		if(load())
+		{
+                	printf("Erreur du chargement\n");
+                	return 0;
+        	}
 	//Socket du serveur proxy
 		SOCKET sockProxy;
 		SOCKADDR_IN sockAddrProxy;
@@ -46,6 +60,7 @@ int main()
 						structSocketClient *structSock = malloc(sizeof(structSocketClient));
 						structSock->socketClient = sockClient;
 						structSock->sockAddrClient = sockAddrClient;
+						structSock->a_C = *a_C ;
 						pthread_t *threadConnexion = malloc(sizeof(pthread_t));
 						pthread_create(threadConnexion,NULL,client,(void *)structSock);
 					}
