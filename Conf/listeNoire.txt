@@ -1,5 +1,5 @@
-https//www.facebook.com
-http://fr.yahoo.com/
-http://fr.wikipedia.org/
-http://www.jeuxvideo.com/
-http://www.jeuxvideo.fr/
+www.facebook.com
+www.yahoo.com
+www.wikipedia.org
+www.jeuxvideo.com
+www.jeuxvideo.fr
