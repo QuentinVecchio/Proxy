@@ -20,6 +20,10 @@ int main()
                 	printf("Erreur du chargement\n");
                 	return 0;
         	}
+	//Configuration du cache
+		char tmp[] = "./tmp";
+		initCache(10, tmp);
+		Cache_Elt* e = malloc(sizeof(Cache_Elt));
 	//Socket du serveur proxy
 		SOCKET sockProxy;
 		SOCKADDR_IN sockAddrProxy;
@@ -61,6 +65,7 @@ int main()
 						structSock->socketClient = sockClient;
 						structSock->sockAddrClient = sockAddrClient;
 						structSock->a_C = *a_C ;
+						structSock->e = e;
 						pthread_t *threadConnexion = malloc(sizeof(pthread_t));
 						pthread_create(threadConnexion,NULL,client,(void *)structSock);
 					}
@@ -84,5 +89,6 @@ int main()
 	{
 
 	}
+	closeCache();
 	return 0;
 }
