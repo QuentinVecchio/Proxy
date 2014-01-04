@@ -77,9 +77,9 @@ int main(int argc, char *argv[])
     printf("Configuration service authentification ...\n");
     sleep(1);
     Auth_Conf *a_C = malloc(sizeof(Auth_Conf));
-    char lN[] = "../Conf/listeNoire.txt\0";
-    char lB[] = "../Conf/listeBlanche.txt\0";
-    char lR[] = "../Conf/listeRegle.txt\0";
+    char lN[] = "Conf/listeNoire.txt\0";
+    char lB[] = "Conf/listeBlanche.txt\0";
+    char lR[] = "Conf/listeRegle.txt\0";
     a_C->listeBlanche = lB;
     a_C->listeNoire = lN;
     a_C->listeRegle = lR;
