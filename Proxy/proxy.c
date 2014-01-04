@@ -108,7 +108,7 @@ void nettoyageHTTP(char *requete)
 void logs(char *host, char*nom, char *ip)
 {
     FILE *f = NULL;
-    f = fopen("logs.csv","a+");
+    f = fopen("Conf/Logs/logs.csv","a+");
     time_t t = time(NULL);
     fprintf(f,"%s;%s;%s;%s",host,nom,ip,ctime(&t));
     fclose(f);
@@ -142,7 +142,7 @@ void *client(void *arg)
         printf("Telechargement detecte => REFUS\n");
         //Envoie de la page au client interdisant le téléchargement
         int l;
-        char* pageTelechargement = contenuFichier("../pagesWeb/pageTelechargement.html",&l);
+        char* pageTelechargement = contenuFichier("PagesWeb/pageTelechargement.html",&l);
         if(l > 0)
         {
             printf("Envoie de la page de téléchargement ... ");
@@ -191,7 +191,7 @@ void *client(void *arg)
             printf("Erreur 404\n");
             //Envoie de la page au client interdisant cette page
             int l;
-            char* pageErr = contenuFichier("../pagesWeb/page404.html",&l);
+            char* pageErr = contenuFichier("PagesWeb/page404.html",&l);
             if(l > 0)
             {
                 printf("Envoie de la page 404 ... ");
@@ -227,7 +227,7 @@ void *client(void *arg)
             //Envoie de la page au client interdisant cette page
             int l, e=0;
             int envoie = 0;
-            char* pageAuth = contenuFichier("../pagesWeb/pageAuth.html",&l);
+            char* pageAuth = contenuFichier("PagesWeb/pageAuth.html",&l);
             if(l > 0)
             {
                 printf("Envoie de la page d'authorisation ... ");
