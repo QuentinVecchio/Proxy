@@ -58,8 +58,11 @@ void closeCache(){
 }
 int keepEltInCache(void* params){
 	Cache_Elt* elt = (Cache_Elt*) params;
-	printf("url:%s, path: %s, timestamps:%d\n", elt->url, elt->path, elt->timestamp);
-	//Ajouter la suppression sur le disque(mutex)
+	//printf("url:%s, path: %s, timestamps:%d\n", elt->url, elt->path, elt->timestamp);
+	pthread_mutex_lock(&elt->m);
+		remove(elt->path);
+	pthread_mutex_unlock(&elt->m);
+
 	return  time(NULL)>elt->timestamp+10;
 }
 
@@ -68,13 +71,11 @@ void* refresh(void* params){
 	printf("Initialiation du refresh\n");
 	while(1){
 		sleep(2);
-		printf("Je m'active\n");
 		int i = Cache_Var_Conf.limit;
 		while(i){
 			sem_wait(&s_liste);
 			i--;
 		}
-		printf("Je travaille\n");
 		keepElt(&Cache_Var_Liste_Cache, keepEltInCache);
 		i = Cache_Var_Conf.limit;
 		while(i){
@@ -82,14 +83,12 @@ void* refresh(void* params){
 			i--;
 		}
 		pthread_mutex_unlock(&m_liste);
-		printf("J'ai fini\n");
 	}
 }
 
 
 Cache_Elt* generate(char* url){
 	static id = 0;
-	printf("Valeur de id:%d\n", id);
 	Cache_Elt* elt = malloc(sizeof(Cache_Elt));
 	elt->url = url;
 	
