@@ -59,12 +59,23 @@ void recupTitrePage(char requete[], char nom[])
         }
     }
 }
-//Fonction verifieTelechargement.
-// Prend en paramètre une requete http.
-//Cette fonction renvoie si c'est un téléchargement ou pas.
-int verifieTelechargement(char requete[])
+//Fonction recupExtension.
+// Prend en paramètre le nom de la page.
+//Cette fonction donne l'extension de la page
+void recupExtension(char nom[],char extension[])
 {
-    return 0;
+	int i = strlen(nom),y = 0;
+    	while(nom[i] != '.')
+	{
+		i--;
+	}
+	i++;//Pour enlever le point
+	while(i != '\0')
+	{
+		extension[y] = nom[i];
+		i++;
+		y++;
+	}
 }
 //Fonction contenuFichier.
 // Prend en paramètre un lien vers un fichier et la taille du contenu.
@@ -119,6 +130,7 @@ void logs(char *host, char*nom, char *ip)
 void *client(void *arg)
 {
 	//Variables
+    char extension[1024];
     char requeteHTTPClient[1024*1024];
     char *reponseServeur = calloc(1024,sizeof(char));
     char host[1024];
@@ -136,44 +148,12 @@ void *client(void *arg)
     printf("Un client se connecte avec la socket %d de %s:%d\n",*structSock->socketClient,inet_ntoa(structSock->sockAddrClient->sin_addr), htons(structSock->sockAddrClient->sin_port));
 	//Reception requete HTTP du client
     recv(*structSock->socketClient,requeteHTTPClient,sizeof(requeteHTTPClient),0);
-	//Vérification téléchargement
-    if(verifieTelechargement(requeteHTTPClient) == 1)
-    {
-        printf("Telechargement detecte => REFUS\n");
-        //Envoie de la page au client interdisant le téléchargement
-        int l;
-        char* pageTelechargement = contenuFichier("PagesWeb/pageTelechargement.html",&l);
-        if(l > 0)
-        {
-            printf("Envoie de la page de téléchargement ... ");
-            if(send(*structSock->socketClient,pageTelechargement,sizeof(char)*(l-2),0) <= 0)
-            {
-                printf("\nERREUR envoie de la page telechargement au client.\n");
-            }
-            else
-            {
-                printf("OK\n");
-            }
-            free(pageTelechargement);
-        }
-        printf("Fin de traitement.\n");
-        //Arret des sockets
-        closesocket(*structSock->socketClient);
-        closesocket(*sockServeurWeb);
-        //Libération de la mémoire
-        free(sockServeurWeb);
-        free(sockAddrServeurWeb);
-        free(structSock->socketClient);
-        free(structSock->sockAddrClient);
-        //Libération semaphore
-        sem_post(&semaphoreInterne);
-        //Fin de traitement
-        return NULL;
-    }
 	//Extraction de l'host dans la requete HTTP reçu
     recupHost(requeteHTTPClient,host);
 	//Extraction du nom de la page web demandée
     recupTitrePage(requeteHTTPClient,nomPage);
+	//Extraction de l'extension de la page web demandée
+    recupExtension(nomPage,extension);
 	//Ajout dans les logs
     logs(host,nomPage,inet_ntoa(structSock->sockAddrClient->sin_addr));
 	if(*sockServeurWeb != INVALID_SOCKET)
@@ -219,7 +199,42 @@ void *client(void *arg)
             //Fin de traitement
             return NULL;
         }
-		//Vérification de l'accesibilité de la page web
+	//Vérification téléchargement
+	/*int isDownload = isAuthorized(extension,inet_ntoa(structSock->sockAddrClient->sin_addr));
+        if(isDownload <= 0)
+        {
+            	printf("Telechargement detecte => REFUS\n");
+        	//Envoie de la page au client interdisant le téléchargement
+        	int l;
+       		char* pageTelechargement = contenuFichier("PagesWeb/pageTelechargement.html",&l);
+       		if(l > 0)
+       		{
+           		printf("Envoie de la page de téléchargement ... ");
+            		if(send(*structSock->socketClient,pageTelechargement,sizeof(char)*(l-2),0) <= 0)
+            		{
+            		    	printf("\nERREUR envoie de la page telechargement au client.\n");
+            		}
+            		else
+            		{
+                		printf("OK\n");
+            		}
+            		free(pageTelechargement);
+		}
+            	printf("OK\nFin de traitement.\n");
+            	//Arret des sockets
+            	closesocket(*structSock->socketClient);
+            	closesocket(*sockServeurWeb);
+            	//Libération de la mémoire
+            	free(sockServeurWeb);
+            	free(sockAddrServeurWeb);
+            	free(structSock->socketClient);
+            	free(structSock->sockAddrClient);
+            	//Libération semaphore
+            	sem_post(&semaphoreInterne);
+            	//Fin de traitement
+            	return NULL;
+        }*/
+	//Vérification de l'accesibilité de la page web
         int isAuth = isAuthorized(host,inet_ntoa(structSock->sockAddrClient->sin_addr));
         if(isAuth <= 0)
         {
@@ -373,5 +388,3 @@ void *client(void *arg)
 	//Fin de traitement
     return NULL;
 }
-#endif
-

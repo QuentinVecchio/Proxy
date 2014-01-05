@@ -17,7 +17,7 @@
 //Bibliothèques cache
 	#include "../Cache/cache.h"
 //Bibliothèques Auth
-	#include "../Auth/Auth.h"
+	#include "../Auth/auth.h"
 //Bibliothèques Liste
 	#include "../ListeGenerique/listeGenerique.h"
 //Bibliothèques autres
@@ -67,10 +67,10 @@
     //Cette fonction renvoie le nom de la page web voulu.
     void recupTitrePage(char requete[], char nom[]);
 
-    //Fonction verifieTelechargement.
-    // Prend en paramètre une requete http.
-    //Cette fonction renvoie si c'est un téléchargement ou pas.
-    int verifieTelechargement(char requete[]);
+    //Fonction recupExtension.
+    // Prend en paramètre le nom de la page web.
+    //Cette fonction donne  l'extension de la page web demandée
+    void recupExtension(char nom[],char extension[])
 
     //Fonction contenuFichier.
     // Prend en paramètre un lien vers un fichier et la taille du contenu.
