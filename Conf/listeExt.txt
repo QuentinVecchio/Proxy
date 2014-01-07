@@ -1,0 +1,5 @@
+exe
+avi
+rar
+zip
+iso
