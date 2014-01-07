@@ -95,7 +95,11 @@ int main(int argc, char *argv[])
     printf("Configuration service cache ...\n");
     sleep(1);
     char tmp[] = "./tmp/";
-    initCache(10, tmp);
+    Cache_Conf conf;
+	conf.limit = 10;
+	conf.tmp = tmp;
+	conf.timeDuration = 5;
+    initCache(conf);
     Cache_Elt* e = malloc(sizeof(Cache_Elt));
 	//Socket du serveur proxy
     SOCKET sockProxy;

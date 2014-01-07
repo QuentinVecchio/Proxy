@@ -7,10 +7,14 @@
 
 /**
 *	Structure de configuration du module de Cache
+*		-int limit, le nombre limite de personne ayant accès en même temps au cache
+*		-char* tmp, le chemin vers le répertoire temporaire
+*		-int timeDuration, la durée de vie d'un élément dans le cache
 */
 typedef struct{
 	int limit;
 	char *tmp;
+	int timeDuration;
 }Cache_Conf;
 
 /**
@@ -50,10 +54,9 @@ pthread_t t_refresh;
 
 /**
 *	Initialisation du module de cache
-*	@params int limit, limitation du nombre d'accès simultanné au cache
-*	@params char* tmp, chemin vers le dossier tmp
+*	@params Cache_Ver_Conf conf, une structure contenant les paramètres, voir définition
 */
-void initCache(int limit, char* tmp);
+void initCache(Cache_Conf conf);
 
 /**
 *	Fermeture du module de cache
