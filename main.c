@@ -96,9 +96,9 @@ int main(int argc, char *argv[])
     sleep(1);
     char tmp[] = "./tmp/";
     Cache_Conf conf;
-	conf.limit = 10;
+	conf.limit = maxConnexionInterne;
 	conf.tmp = tmp;
-	conf.timeDuration = 5;
+	conf.timeDuration = TPS_DEFAUT;
     initCache(conf);
     Cache_Elt* e = malloc(sizeof(Cache_Elt));
 	//Socket du serveur proxy

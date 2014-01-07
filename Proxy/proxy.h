@@ -31,7 +31,7 @@
 	#define PORT_DEFAUT 65000
 	#define MAX_CONNEXION_INTERNE_DEFAUT 100;
 	#define MAX_CONNEXION_EXTERNE_DEFAUT 100;
-	#define TPS_DEFAUT 10;
+	#define TPS_DEFAUT 50;
 //Redéfnition de types
 	typedef int SOCKET;
 	typedef struct sockaddr_in SOCKADDR_IN;
