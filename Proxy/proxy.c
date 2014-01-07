@@ -78,6 +78,7 @@ void recupExtension(char *nom,char *extension)
 		i++;
 		y++;
 	}
+	extension[3]='\0';
 	printf("nom : %s => extension : %s\n",nom,extension);
 }
 //Fonction contenuFichier.
@@ -213,6 +214,7 @@ void *client(void *arg)
         }
 	//Vérification téléchargement
 	     int isDownload = isAuthorized(host,inet_ntoa(structSock->sockAddrClient->sin_addr),extension);
+		printf("Valeur de retour de la fonction:%d\n\n", isDownload);
         if(isDownload == 3)
         {
             	printf("Telechargement detecte => REFUS\n");
@@ -306,7 +308,7 @@ void *client(void *arg)
                         printf("\nERRREUR envoie de la page web au client\n");
                         break;
                     }
-							printf("valeur de e:%d\n\n", e);
+							//printf("valeur de e:%d\n\n", e);
                    // envoie += e;
                 //}
                 printf("OK\n");
@@ -323,13 +325,13 @@ void *client(void *arg)
                 sockAddrServeurWeb->sin_family = AF_INET;
                 //sockAddrServeurWeb->sin_port = htons(3128);
                 sockAddrServeurWeb->sin_port = htons(PORT_INTERNET_DEFAUT);
-                printf("%s\n",inet_ntoa(sockAddrServeurWeb->sin_addr));
+                //printf("%s\n",inet_ntoa(sockAddrServeurWeb->sin_addr));
                 freeaddrinfo(structAddrIP);
                 //Connexion au serveur web demandé
                 printf("Connexion au serveur distant ..\n");
                 connect(*sockServeurWeb,(SOCKADDR*)sockAddrServeurWeb,sockAddrServeurWebSize);
                 //Nettoyage HTTP
-					printf("%s\n\n", requeteHTTPClient);
+					//printf("%s\n\n", requeteHTTPClient);
                 nettoyageHTTP(requeteHTTPClient);
                 //Envoie de la requete HTTP au serveur web
 
@@ -368,7 +370,7 @@ printf("Telecharge\n");
 									
 									// int res = fprintf(f,"%s",reponseServeur);
 										int res = fwrite(reponseServeur, sizeof(char)*recu, 1, f);
-										printf("Valeur de res:%d et valeur de recu: %d\n\n", res, recu);
+										//printf("Valeur de res:%d et valeur de recu: %d\n\n", res, recu);
                             //reponseServeur = realloc(reponseServeur,(1024 + length)*sizeof(char));
                         }
                         //On a fini de se connecter à internet on increment la socket de connection externe

@@ -127,7 +127,6 @@ int cmp_regle(void* valeur, void* elt){
 	}
 
 	if(strcmp(v->address, e->address)) return 0;
-
 	return e->status;
 
 }
@@ -161,7 +160,7 @@ int isAuthorized(char* lien, char* address, char* ext){
 	a_S.fonctionCmp[3]= &cmp_lien;
 	a_S.params[3] = (void*) ext;
 
-
+	
 	a_S.listeRecherche[0] = Auth_Var_Liste_Blanche;
 	a_S.listeRecherche[1] = Auth_Var_Liste_Noire;
 	a_S.listeRecherche[2] = Auth_Var_Liste_Regle;
@@ -179,9 +178,10 @@ int isAuthorized(char* lien, char* address, char* ext){
 		pthread_join(t[i], NULL);
 	}
 
-	if(a_S.estDansListe[2] == 1 || a_S.estDansListe[0] == 1 || a_S.estDansListe[1] == 0) return 1;
-	if(a_S.estDansListe[2] == -1) return 2;
+	if(a_S.estDansListe[2] == 1) return 1;
 	if(a_S.estDansListe[3] == 1) return 3;
+	if(a_S.estDansListe[2] == -1 || a_S.estDansListe[1] == 1) return 2;
+	if(a_S.estDansListe[0] == 1 || a_S.estDansListe[1] == 0) return 1;
 
 }
 
