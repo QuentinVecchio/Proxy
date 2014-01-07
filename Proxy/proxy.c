@@ -72,12 +72,13 @@ void recupExtension(char *nom,char *extension)
 		i--;
 	}
 	i++;//Pour enlever le point
-	while(i != '\0')
+	while(nom[i] != '\0')
 	{
 		extension[y] = nom[i];
 		i++;
 		y++;
 	}
+	printf("nom : %s => extension : %s\n",nom,extension);
 }
 //Fonction contenuFichier.
 // Prend en paramètre un lien vers un fichier et la taille du contenu.
@@ -162,10 +163,9 @@ void *client(void *arg)
 	//Extraction de l'host dans la requete HTTP reçu
     recupHost(requeteHTTPClient,host);
 	//Extraction du nom de la page web demandée
-
     recupTitrePage(requeteHTTPClient,nomPage);
 	//Extraction de l'extension de la page web demandée
-   // recupExtension(nomPage,extension);
+    recupExtension(nomPage,extension);
 	//Ajout dans les logs
     //logs(host,nomPage,inet_ntoa(structSock->sockAddrClient->sin_addr));
 	if(*sockServeurWeb != INVALID_SOCKET)
