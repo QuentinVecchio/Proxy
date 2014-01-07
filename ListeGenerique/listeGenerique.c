@@ -30,8 +30,9 @@ void affiche(Liste* l,  void (*fonc)(void*)){
 }
 
 int recherche(Liste* l,void* elt, int (*fonc)()){
+	int res;
 	if((*l) != NULL){
-		if((*fonc)(elt,(*l)->courant)) return 1;
+		if((res=(*fonc)(elt,(*l)->courant))) return res;
 		else return recherche(&((*l)->suivant),elt,fonc);
 	}
 
