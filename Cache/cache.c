@@ -8,10 +8,9 @@
 #include <time.h>
 #include "cache.h"
 
-void initCache(int limit, char* tmp){
+void initCache(Cache_Conf conf){
 	printf("Initialisation du module de cache\n");
-	Cache_Var_Conf.limit = limit;
-	Cache_Var_Conf.tmp = tmp;
+	Cache_Var_Conf = conf;
 
 
 	if(mkdir(Cache_Var_Conf.tmp, 0777)>0){
@@ -60,7 +59,7 @@ int keepEltInCache(void* params){
 	Cache_Elt* elt = (Cache_Elt*) params;
 	//printf("url:%s, path: %s, timestamps:%d\n", elt->url, elt->path, elt->timestamp);
 	pthread_mutex_lock(&elt->m);
-	int res = time(NULL)>elt->timestamp+10;
+	int res = time(NULL)>elt->timestamp+Cache_Var_Conf.timeDuration;
 	if(res){
 		remove(elt->path);
 	}
