@@ -9,11 +9,14 @@ void init(Auth_Conf conf){
 	printf("Liste blanche:\n%s\n", conf.listeBlanche);
 	printf("Liste noire:\n%s\n", conf.listeNoire);
 	printf("Liste règles:\n%s\n", conf.listeRegle);
+	printf("Liste extensions:\n%s\n", conf.listeExt);
+
 
 	Auth_Var_Conf = conf;
 	initListe(&Auth_Var_Liste_Blanche);
 	initListe(&Auth_Var_Liste_Noire);
 	initListe(&Auth_Var_Liste_Regle);
+	initListe(&Auth_Var_Liste_Ext);
 }
 
 int load(){
@@ -26,7 +29,10 @@ int load(){
 	printf("Chargement de la liste des règles\n");
 	int successC = loadRules(Auth_Var_Conf.listeRegle, &Auth_Var_Liste_Regle);
 
-	if(!successA && !successA && !successC){
+	printf("Chargement de la liste des extensions\n");
+	int successD = loadListe(Auth_Var_Conf.listeExt, &Auth_Var_Liste_Ext);
+
+	if(!successA && !successA && !successC &&!successD){
 		printf("Listes chargées avec succès\n");
 		return 0;
 	}else{
@@ -127,7 +133,7 @@ int cmp_regle(void* valeur, void* elt){
 }
 
 
-int isAuthorized(char* lien, char* address){
+int isAuthorized(char* lien, char* address, char* ext){
 	printf("Recherche du lien: %s\n", lien);
 
 	Auth_Search a_S;
@@ -151,24 +157,32 @@ int isAuthorized(char* lien, char* address){
 	a_S.fonctionCmp[2]= &cmp_regle;
 	a_S.params[2] = (void*) &a_R;
 
+	a_S.estDansListe[3] = 0;
+	a_S.fonctionCmp[3]= &cmp_lien;
+	a_S.params[3] = (void*) ext;
+
 
 	a_S.listeRecherche[0] = Auth_Var_Liste_Blanche;
 	a_S.listeRecherche[1] = Auth_Var_Liste_Noire;
 	a_S.listeRecherche[2] = Auth_Var_Liste_Regle;
+	a_S.listeRecherche[3] = Auth_Var_Liste_Ext;
 	pthread_t t[NB_THREAD];
 	
 	int i;
 	pthread_create(&t[0], NULL, thread_search, (void*) &a_S);
 	pthread_create(&t[1], NULL, thread_search, (void*) &a_S);
 	pthread_create(&t[2], NULL, thread_search, (void*) &a_S);
+	pthread_create(&t[3], NULL, thread_search, (void*) &a_S);
+
 
 	for(i=0; i < NB_THREAD; i++){
 		pthread_join(t[i], NULL);
 	}
 
-	if(a_S.estDansListe[2]) return a_S.estDansListe[2];
+	if(a_S.estDansListe[2] == 1 || a_S.estDansListe[0] == 1 || a_S.estDansListe[1] == 0) return 1;
+	if(a_S.estDansListe[2] == -1) return 2;
+	if(a_S.estDansListe[3] == 1) return 3;
 
-	return a_S.estDansListe[0] || !a_S.estDansListe[1];
 }
 
 

@@ -13,12 +13,13 @@ typedef struct{
 	char* listeBlanche;
 	char* listeNoire;
 	char* listeRegle;
+	char* listeExt;
 }Auth_Conf;
 
 /**
 *	NB_THREAD correspond au nombre de recherche simultannée que l'on fait des les fichiers
 */
-#define NB_THREAD 3
+#define NB_THREAD 4
 
 /**
 *	Structure des règles pour un ordinateur précis
@@ -75,6 +76,11 @@ Liste Auth_Var_Liste_Noire;
 *	Liste des règles
 */
 Liste Auth_Var_Liste_Regle;
+
+/**
+*	Liste des extensions
+*/
+Liste Auth_Var_Liste_Ext;
 
 
 /**
@@ -138,9 +144,11 @@ int cmp_regle(void* valeur, void* elt);
 *	Test si le lien est dans une des listes
 *	@params char* lien, le lien du site web
 *	@params char* address, l'adresse IP de la personne qui veut accéder au site
+*	@params char* ext, l'extension de la cible
 *	@return 1, si le lien est autorisé
-*	@return 0, sinon
+*	@return 2, le lien est refusé
+*	@return 3, c'est un téléchargement
 */
-int isAuthorized(char* lien, char* address);
+int isAuthorized(char* lien, char* address, char* ext);
 
 #endif

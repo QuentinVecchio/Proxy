@@ -60,10 +60,13 @@ int keepEltInCache(void* params){
 	Cache_Elt* elt = (Cache_Elt*) params;
 	//printf("url:%s, path: %s, timestamps:%d\n", elt->url, elt->path, elt->timestamp);
 	pthread_mutex_lock(&elt->m);
+	int res = time(NULL)>elt->timestamp+10;
+	if(res){
 		remove(elt->path);
+	}
 	pthread_mutex_unlock(&elt->m);
 
-	return  time(NULL)>elt->timestamp+10;
+	return  res;
 }
 
 
@@ -93,11 +96,12 @@ Cache_Elt* generate(char* url){
 	elt->url = url;
 	
 	elt->path = malloc(sizeof(char)*2048);
-	sprintf(elt->path, "%d_%d%s", (int)time(NULL),id, ".tmp");
+
+	sprintf(elt->path, "%s/%d_%d%s",Cache_Var_Conf.tmp, (int)time(NULL),id, ".tmp");
 	elt->timestamp = time(NULL);
 	pthread_mutex_init(&elt->m, NULL);
 	
-	id = (id+1)%20;
+	id = (id+1)%2000;
 	return elt;
 }
 

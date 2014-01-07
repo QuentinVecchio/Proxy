@@ -80,9 +80,11 @@ int main(int argc, char *argv[])
     char lN[] = "Conf/listeNoire.txt\0";
     char lB[] = "Conf/listeBlanche.txt\0";
     char lR[] = "Conf/listeRegle.txt\0";
+	 char lE[] = "Conf/listeExt.txt\0";
     a_C->listeBlanche = lB;
     a_C->listeNoire = lN;
     a_C->listeRegle = lR;
+	 a_C->listeExt = lE;
     init(*a_C);
     if(load())
     {
@@ -92,7 +94,7 @@ int main(int argc, char *argv[])
 	//Configuration du cache
     printf("Configuration service cache ...\n");
     sleep(1);
-    char tmp[] = "./tmp";
+    char tmp[] = "./tmp/";
     initCache(10, tmp);
     Cache_Elt* e = malloc(sizeof(Cache_Elt));
 	//Socket du serveur proxy

@@ -29,8 +29,8 @@
 	#define closesocket(s) close (s)
 	#define PORT_INTERNET_DEFAUT 80
 	#define PORT_DEFAUT 65000
-	#define MAX_CONNEXION_INTERNE_DEFAUT 10;
-	#define MAX_CONNEXION_EXTERNE_DEFAUT 10;
+	#define MAX_CONNEXION_INTERNE_DEFAUT 100;
+	#define MAX_CONNEXION_EXTERNE_DEFAUT 100;
 	#define TPS_DEFAUT 10;
 //Redéfnition de types
 	typedef int SOCKET;
