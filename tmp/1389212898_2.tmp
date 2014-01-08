@@ -1,0 +1,56 @@
+HTTP/1.1 200 OK
+Date: Wed, 08 Jan 2014 20:28:15 GMT
+Server: Apache
+Last-Modified: Sun, 07 Apr 2013 07:33:21 GMT
+Accept-Ranges: bytes
+Content-Length: 2865
+Cache-Control: max-age=2592000
+Expires: Fri, 07 Feb 2014 20:28:15 GMT
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Content-Type: text/css
+
+*{font-size:20px;}
+.menu, .sous_menu, #t2, #t3, #menu_g, #cherche, #CFMo, #ois_menu_1, #logo, #PH2, #PH, #distri, .drapeau img , #onglet img, .espace, .liste, .tb_photos, #chant, #nc, #lt, #autresliens, #sonflash, #cartedistrib, #t1, #t1b{width:0px;visibility:hidden;display:none;}
+body, .FBody, .fbody,#ois_conteneur_fiche,#ois_conteneur_distri{background-color:transparent;background-image:none;padding:0px;margin:0px;width:320px;}
+#onglet{position:absolute;top:0px;left:0px;width:100%;height:42px;z-index:15;padding:0px;margin:0px;border:0px none;font-size:14px;}
+#navhome, #navhome a{max-width:30px;overflow:hidden;}
+#navpays, #navordre, #navfamille, #navfiche, #navdistri, #navphotos{padding:0px;margin:0px;}
+#son{width:90%;}
+#son, #son span, #son i, #son li{font-size:12px;}
+#sonmp3{display:inline;display:block;visibility:visible;float:left;border:2px solid;padding:3px 10px 3px 10px;margin:5px 5px 0px 4px;vertical-align:middle;}
+#onglet a, #onglet .fich0, #onglet .fich1, #onglet .fich2, #onglet .fich3{padding:0px 1px 0px 1px;margin:0px 0px 0px 1px;font-size:14px;font-weight:bold;font-family:Verdana, Arial;}
+#onglet .fich3{font-size:14px;color:#685E90;border:0px none;}
+span .fich3, .fich3{margin:0px;}
+#onglet .drapeau{color:#685E90;border:0px none;background-color:transparent;padding:2px 4px 2px 4px;margin:0px;}
+#fich_1, #fich_2{position:relative;top:60px;left:5px;width:310px;float:none;padding:0px 0px 0px 5px;margin:0px;z-index:12;background-color:transparent;background-image:none;border:0px none;}
+#fich_2{top:0px;z-index:12;text-align:justify;padding:0px;margin:0px;}
+.drapeau{display:block;}
+#biometrie{width:100%;font-size:16px;margin:0px 0px 0px 5px;}
+#biometrie p{font-size:14px;}
+#bioesp, p#bioesp{font-size:22px;padding:0px;}
+#biolat, #bioord,#biofam{padding:0px;margin:0px;}
+#biometrie p.b2 span.F5e{font-size:14px;vertical-align:top;}
+#bioord.b1, #biofam span a{font-size:14px;padding:0px;}
+#iucn1, #iucn2, #iucn3, #iucn4, #iucn5, #iucn6, #iucn7, #iucn8{top:8px;}
+#iucn2{top:7px;left:88px;}
+#iucn3{top:0px;left:170px;height:24px;width:90px;}
+#iucn4, #iucn5, #iucn6{top:50px;padding:0px;margin:0px;}
+#iucn5{left:140px;}
+#iucn6{left:225px;}
+#iucn7{top:20px;left:85px;width:66px;height:8px;text-align:left;}
+#iucn7 img{border:0px none;}
+#iucn8{top:34px;left:18px;width:235px;height:16px;text-align:left;}
+#iucn12{left:185px}
+#iucn13{left:255px}
+p.b2 span.b1{font-size:16px;padding:0px;}
+.pdp span i{font-size:12px;padding:0px;}
+#iucn, #iucn8{width:310px;}
+.F4a, .F4a .glossaire, .F4a a, .tb_lite, .tb_lite td, .tb_lite td a, .li1, .li1 a, .li1 i{font-size:16px;}
+.F4b{font-size:18px;background-repeat:repeat-y;padding:1px 1px 1px 20px;}
+#pays{width:100%;}
+#monde{width:650px;height:418px;}
+#carte{width:650px;height:418px;}
+#mappemonde{width:650px;height:418px;}
+.jp_container_1,.jp-type-playlist{width:100%}
+.son_auteur{font-size:10px;}

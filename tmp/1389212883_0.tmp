@@ -1,0 +1,13 @@
+HTTP/1.0 200 OK
+Date: Wed, 08 Jan 2014 20:28:03 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+X-Frame-Options: ALLOWALL
+Content-Type: text/html; charset=ISO-8859-1
+Server: gws
+X-XSS-Protection: 1; mode=block
+Alternate-Protocol: 80:quic
+
+<script>window.googleJavaScriptRedirect=1</script><script>var m={navigateTo:function(b,a,d){if(b!=a&&b.google){if(b.google.r){b.google.r=0;b.location.href=d;a.location.replace("about:blank");}}else{a.location.replace(d);}}};m.navigateTo(window.parent,window,"http://www.oiseaux.net/oiseaux/moineau.domestique.html");
+</script><noscript><META http-equiv="refresh" content="0;URL='http://www.oiseaux.net/oiseaux/moineau.domestique.html'"></noscript>
