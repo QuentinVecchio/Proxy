@@ -91,14 +91,13 @@ char *contenuFichier(char *lienFichier,int* l)
 {
     char *contenu = malloc(sizeof(char));
     FILE *file = NULL;
-    file = fopen(lienFichier,"rb");
-		
-		struct stat statbuf; 
-		int filesize; 
-		 
-		 stat(lienFichier,&statbuf);  /// the_file, le fichier a lire 
-		 filesize = (long)statbuf.st_size;
-		printf("Valeur:%d\n\n\n", filesize);
+    file = fopen(lienFichier,"rb+");
+
+		struct stat statbuf;
+		int filesize;
+		 stat(lienFichier,&statbuf);  /// the_file, le fichier a lir
+    filesize = (long)statbuf.st_size;
+    printf("Valeur:%d\n\n\n", filesize);
 
     if(file != NULL)
     {
@@ -335,7 +334,7 @@ void *client(void *arg)
                 connect(*sockServeurWeb,(SOCKADDR*)sockAddrServeurWeb,sockAddrServeurWebSize);
                 //Nettoyage HTTP
 					//printf("%s\n\n", requeteHTTPClient);
-                nettoyageHTTP(requeteHTTPClient);
+                //nettoyageHTTP(requeteHTTPClient);
                 //Envoie de la requete HTTP au serveur web
 
                 printf("Envoie de la requete http ... \n\n");
@@ -356,7 +355,7 @@ void *client(void *arg)
                     recu = 0;
                     int envoie = 0,e = 0;
                     FILE *f = NULL;
-                    f = fopen(element->path,"w");
+                    f = fopen(element->path,"wb");
 							printf("Ouverture\n");
                     if(f != NULL)
                     {
@@ -364,13 +363,12 @@ void *client(void *arg)
                         sem_wait(&semaphoreExterne);
 
 
-printf("Telecharge\n");
+		printf("Telecharge\n");
                         //On telecharge la page
                         while((recu = read(*sockServeurWeb,reponseServeur,1024)) > 0)
                         {
                             //length += recu;
 									 reponseServeur[recu] = '\0';
-									
 									// int res = fprintf(f,"%s",reponseServeur);
 										int res = fwrite(reponseServeur, sizeof(char)*recu, 1, f);
 										//printf("Valeur de res:%d et valeur de recu: %d\n\n", res, recu);
