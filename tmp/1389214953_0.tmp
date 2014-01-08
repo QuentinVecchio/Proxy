@@ -1,0 +1,465 @@
+HTTP/1.1 200 OK
+Date: Wed, 08 Jan 2014 21:02:24 GMT
+Server: Apache
+Last-Modified: Mon, 06 Jan 2014 03:31:17 GMT
+Accept-Ranges: bytes
+Content-Length: 41550
+Cache-Control: max-age=86400
+Expires: Thu, 09 Jan 2014 21:02:24 GMT
+Vary: Accept-Encoding,User-Agent
+Content-Type: text/html
+
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
+<head>
+<title>Moineau domestique - Passer domesticus - House Sparrow</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="rating" content="General" />
+<meta name="author" content="Oiseaux.net" />
+<meta name="description" content="Fiche d'identification : Moineau domestique ( Passer domesticus ). Ordre : Passériformes, Famille : Passéridés." />
+<meta name="keywords" content="Moineau domestique,Passéridés,Passer domesticus,Moineau domestique,Passériformes,oiseaux,photos,House Sparrow" />
+<meta property="og:image" content="http://didier.oiseaux.net/images/moineau.domestique.dico.1g.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="683" />
+<meta property="og:title" content="Moineau domestique - Passer domesticus - House Sparrow" />
+<link rel="stylesheet" type="text/css" href="http://www.oiseaux.net/css/20130821.css" />
+<!-- plus de styles -->
+<meta name="viewport" content="width=device-width" />
+<!--[if !IE]>-->
+<link media="only screen and (max-device-width: 480px)" href="http://www.oiseaux.net/css/iphone.css" type="text/css" rel="stylesheet" />
+<!--<![endif]-->
+<link rel="search" type="application/opensearchdescription+xml" title="Oiseaux.net" href="http://www.oiseaux.net/oiseaux.xpi" />
+<link rel="alternate" type="application/rss+xml" title="Actualité oiseaux.net" href="http://www.oiseaux.net/rss/actu.xml" />
+<script type="text/javascript" src="http://www.oiseaux.net/js/menu_utf8.js"></script>
+<script type="text/javascript" src="http://www.oiseaux.net/js/jquery/jquery-1.9.1.min.js"></script>
+<!-- jplayer -->
+<script type="text/javascript" src="http://www.oiseaux.net/js/jquery/jquery.jplayer.2.4.0.min.js"></script>
+<script type="text/javascript" src="http://www.oiseaux.net/js/jquery/add-on/jplayer.playlist.2.4.0.min.js"></script>
+<!-- /jplayer -->
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	},[
+		{
+			title:"&#9835; indéfini <div cla"+"ss=\"by\"><a href=\"http://www.grandeurnaturesafaris.com\">Franck Brunelière</a> <img src=\"http://www.oiseaux.net/images/icon/other/copyright.png\" /></div>",
+			mp3:"http://www.oiseaux.net/chant/franck.bruneliere/moineau.domestique.1.mp3",
+			oga:"http://www.oiseaux.net/chant/franck.bruneliere/moineau.domestique.1.ogg"
+		},		{
+			title:"&#9835; indéfini <div cla"+"ss=\"by\"><a href=\"http://www.oiseaux.net/dossiers/jean.roche/presentation.html\">Jean-Claude Roché</a> <img src=\"http://www.oiseaux.net/images/icon/other/copyright.png\" /></div>",
+			mp3:"http://www.oiseaux.net/chant/jean.roche/moineau.domestique.2.mp3",
+			oga:"http://www.oiseaux.net/chant/jean.roche/moineau.domestique.2.ogg"
+		},		{
+			title:"&#9835; cri <div cla"+"ss=\"by\"><a href=\"http://www.xeno-canto.org/35174\">XC : Marco Dragonetti</a> <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.5/\"><img src=\"http://www.oiseaux.net/images/icon/other/cc-20x20.png\" /></a></div>",
+			mp3:"http://www.oiseaux.net/chant/xeno-canto/moineau.domestique.35174.mp3",
+			oga:"http://www.oiseaux.net/chant/xeno-canto/moineau.domestique.35174.ogg"
+		},		{
+			title:"&#9835; chant  <div cla"+"ss=\"by\"><a href=\"http://www.xeno-canto.org/5954\">XC : Manuel Grosselet</a> <a href=\"http://creativecommons.org/licenses/by-nc-nd/2.5/\"><img src=\"http://www.oiseaux.net/images/icon/other/cc-20x20.png\" /></a></div>",
+			mp3:"http://www.oiseaux.net/chant/xeno-canto/moineau.domestique.5954.mp3",
+			oga:"http://www.oiseaux.net/chant/xeno-canto/moineau.domestique.5954.ogg"
+		}
+	], {
+		swfPath: "../js/jquery",
+		supplied: "mp3,oga",
+		solution:"flash,html",
+		wmode: "window"
+	});
+});
+//]]>
+</script>
+</head>
+<body> 
+<div id="ois_conteneur_fiche">
+
+<div id="t1"><h1>Moineau domestique</h1></div>
+<div id="t1b"><h2><i>Passer domesticus</i> - House Sparrow</h2></div>
+
+<div id="onglet">
+	<div id="navhome"><a href="http://www.oiseaux.net/">Oiseaux</a></div>
+	<div id="navordre"><a href="passeriformes.html">Passériformes</a></div>
+	<div id="navfamille"><a href="passerides.html">Passéridés</a></div>
+	<div id="navfiche"><span class="fich2">Fiche <img src="../images/fr.png" alt="Version française" /></span></div>
+	<div id="navdistri"><a href="http://maps.oiseaux.net/moineau.domestique.html">Distribution</a></div>
+	<div id="navphotos"><a href="photos/moineau.domestique.html">Photos</a></div>
+</div>
+
+<div id="fich_1">
+<div id="fich_2">
+<!-- fiche_esp -->
+<div id="fiche_esp" class="biota bird">
+	<span style="float:right;margin: 0px 5px 5px 5px" class="image"><a href="http://didier.oiseaux.net/moineau.domestique.1.html#monde"><img src="http://didier.oiseaux.net/images/moineau.domestique.dico.1p.jpg" title="Moineau domestique © Didier Collin" alt="Moineau domestique" style="width:130px;height:65px;" /></a></span>
+	<p id="bioesp" class="vernacular">Moineau domestique</p>
+	<p id="biolat" class="binominal">Passer domesticus</p>
+	<p class="authority">((Linnaeus, 1758))</p>
+	<br />
+	<p id="bioord"><span class="b1">Ordre</span> : <span class="order">Passériformes</span></p>
+	<p id="biofam"><span class="b1">Famille</span> : <span id="menu8" class="menu_2" onmouseover="MontrerMenu('sous_menu8');" onmouseout="CacherDelai();">
+<a href="#" onmouseover="MontrerMenu('sous_menu');" onfocus="MontrerMenu('sous_menu8');">
+	Passéridés
+	<span>&nbsp;;</span>
+</a>
+</span></p><ul id="sous_menu8" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+<li class="b3">4 autres fiches de cette famille.</li><!-- Drapeau Fr --><li><img src="../images/fr.png" alt="" />Version française</li><!-- /Drapeau Fr --><li><a href="moineau.friquet.html" title="Moineau friquet">Moineau friquet</a></li><li><a href="moineau.soulcie.html" title="Moineau soulcie">Moineau soulcie</a></li><li><a href="niverolle.alpine.html" title="Niverolle alpine">Niverolle alpine</a></li><li><a href="niverolle.de.david.html" title="Niverolle de David">Niverolle de David</a></li></ul>
+<span class="family"><!-- Famille --></span>
+	<p class="b2"><span class="b1">Genre</span> : <span class="genus">Passer</span></p>
+	<p class="b2"><span class="b1">Espèce </span> : <span class="species">domesticus</span></p>
+	<p class="b2"><span class="b1">Sous-espèces : </span>
+	<span id="ssp" class="b1 ouvert_ssp">
+		<a href="JavaScript:void(0);" class="fermeture_ssp" 
+				onclick="document.getElementById('ssp').className='ferme_ssp';"> 12 [+]</a> 
+		<a href="JavaScript:void(0);" class="ouverture_ssp" 
+				onclick="document.getElementById('ssp').className='ouvert_ssp';">[-]</a>
+		<span class="contenu_ssp">
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">domesticus</span></span><span class="dist_ssp">(widespread, introduced worldwide)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">balearoibericus</span></span><span class="dist_ssp">(s Europe. except Italy. to c Turkey)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">biblicus</span></span><span class="dist_ssp">(Cyprus, n Israel and nw Jordan to w Syria and se Turkey to nw Iran.)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">hyrcanus</span></span><span class="dist_ssp">(se Azerbaijan and n Iran)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">persicus</span></span><span class="dist_ssp">(c Iran to w and s Afghanistan)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">indicus</span></span><span class="dist_ssp">(s Israel and s Palestine through Arabia and east to India and c Southeast Asia)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">bactrianus</span></span><span class="dist_ssp">(w Turkmenistan and ne Iran to w China and nw Pakistan)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">parkini</span></span><span class="dist_ssp">(nw and c Himalayas)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">hufufae</span></span><span class="dist_ssp">(ne Arabia)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">tingitanus</span></span><span class="dist_ssp">(nw Africa)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">niloticus</span></span><span class="dist_ssp">(Egypt)</span>
+		<br /><span class="trinomial"><span class="genius">Passer</span> <span class="species">domesticus</span> <span class="subspecies">rufidorsalis</span></span><span class="dist_ssp">(Sudan and Eritrea)</span></span>
+	</span>
+</p>
+	<!-- Son -->
+	<p class="b2"><span class="b1">Chant </span> : </p>
+	<div id="son">
+		<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+		<div id="jp_container_1" class="jp-audio">
+			<div class="jp-type-playlist">
+				<div class="jp-gui jp-interface">
+					<ul class="jp-controls">
+						<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+						<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+					</ul>
+					<div class="jp-progress">
+						<div class="jp-seek-bar">
+							<div class="jp-play-bar"></div>
+						</div>
+					</div>
+					<div class="jp-time-holder">
+						<div class="jp-current-time"></div>
+						<div class="jp-duration"></div>
+					</div>
+				</div>
+				<div class="jp-playlist">
+					<ul>
+						<li></li>
+					</ul>
+				</div>
+				<div class="jp-no-solution">
+					<span></span>
+					<a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+					<br />
+	<br /><a href="http://www.oiseaux.net/chant/franck.bruneliere/moineau.domestique.1.mp3">indéfini </a>par Franck Brunelière
+	<br /><a href="http://www.oiseaux.net/chant/jean.roche/moineau.domestique.2.mp3">indéfini </a>par Jean-Claude Roché
+	<br /><a href="http://www.oiseaux.net/chant/xeno-canto/moineau.domestique.35174.mp3">cri </a>par 
+	<br /><a href="http://www.oiseaux.net/chant/xeno-canto/moineau.domestique.5954.mp3">chant  </a>par <br /><a href="http://didier.oiseaux.net/images/moineau.domestique.dico.1g.jpg" title="Moineau domestique">Moineau domestique</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Son -->
+	<p class="b2"><span class="b1">Biométrie </span> : </p>
+	<p id="biodim">
+		Taille : 18 cm
+		<br />Envergure : 25 cm.
+		<br />Poids : 30 à 39 g
+	</p>
+	<p class="b2"><span class="b1">Longévité</span> : 
+			13 ans</p>
+	<p class="b2"><span class="b1">Statut de conservation IUCN :</span></p>
+	<div id="iucn">
+		<div id="iucn1">Eteint</div>
+		<div id="iucn2">Menacé</div>
+		<div id="iucn3">Préoccupation<br />mineure</div>	
+		<div id="iucn4">Éteint<br />à l'état sauvage</div>	
+		<div id="iucn5">Quasi<br />menacé</div>	
+		<div id="iucn6">Non<br />évalué</div>	
+		<div id="iucn7"><img src="http://www.oiseaux.net/images/accolade.png" alt="" /></div>
+		<div id="iucn8">
+			<p>
+			
+			<span style="background-color:#FAFAFA;color:#3B748F">EX</span>
+			<span style="background-color:#FAFAFA;color:#3B748F">EW</span>
+			<span style="background-color:#FAFAFA;color:#3B748F">CR</span>
+			<span style="background-color:#FAFAFA;color:#3B748F">EN</span>
+			<span style="background-color:#FAFAFA;color:#3B748F">VU</span>
+			<span style="background-color:#FAFAFA;color:#3B748F">NT</span>
+			<span style="background-color:#006666;color:#FFFFFF">LC</span>
+			<span style="background-color:#FAFAFA;color:#3B748F;margin: 0px 0px 0px 5px;">NE</span>
+			</p>
+		</div>
+		<div id="iucn9"></div><div id="iucn10"></div><div id="iucn11"></div><div id="iucn12"></div><div id="iucn13"></div>
+	</div>
+	<p id="cartedistrib"><span class="b1">Distribution :</span>
+<br /><a href="http://maps.oiseaux.net/moineau.domestique.html" title="Distribution"><img src="../maps/images/moineau.domestique.1.png" alt="Distribution " style="width:275px;height:188px" /></a></p>
+	<p class="b2"><span class="b1">Synonymes</span> : Huismossie<span class="F5e"> (af)</span>, vrabec domácí<span class="F5e"> (cs)</span>, Gråspurv<span class="F5e"> (da)</span>, Haussperling<span class="F5e"> (de)</span>, House Sparrow<span class="F5e"> (en)</span>, Gorrión común<span class="F5e"> (es)</span>, varpunen<span class="F5e"> (fi)</span>, Házi veréb<span class="F5e"> (hu)</span>, Passera europea<span class="F5e"> (it)</span>, イエスズメ<span class="F5e"> (ja)</span>, Gråspurv<span class="F5e"> (nb)</span>, Huismus<span class="F5e"> (nl)</span>, wróbel (zwyczajny)<span class="F5e"> (pl)</span>, Pardal-dos-telhados<span class="F5e"> (pt)</span>, Домовый воробей<span class="F5e"> (ru)</span>, vrabec domový<span class="F5e"> (sk)</span>, Gråsparv<span class="F5e"> (sv)</span>, 家麻雀<span class="F5e"> (zh)</span></p>
+</div><!-- /fiche_esp -->
+<p class="F4a">
+<span class="F4b" id="Description">Identification : </span><br /> <span style="float:left;margin: 5px 5px 0px 5px"><a href="http://www.oiseaux.net/photos/aurelien.audevard/moineau.domestique.1.html#monde"><img src="http://www.oiseaux.net/photos/aurelien.audevard/images/moineau.domestique.auau.1p.jpg" title="Moineau domestique © Aurélien Audevard" alt="Moineau domestique" style="width:130px;height:122px;" /></a></span> Connu de tous, le moineau est si commun que le passant ne daigne plus le regarder, bien que cette petite boule de <a class="glossaire" href="../glossaire/plume.html" title="plumes">plumes</a> sautillante, robuste et trapue, mérite toute notre attention.
+<br />Le moineau domestique adulte mâle a le dos brun strié de noir. Les scapulaires sont châtain. Les <a class="glossaire" href="../glossaire/aile.html" title="ailes">ailes</a> sont brunâtres avec des <a class="glossaire" href="../glossaire/barre.alaire.html" title="barres alaires">barres alaires</a> blanches. Le croupion est gris. La queue est gris-brun foncé.
+<br />Les parties inférieures sont plus claires, avec la poitrine et l'<a class="glossaire" href="../glossaire/abdomen.html" title="abdomen">abdomen</a> gris uni. En plumage nuptial, le mâle a une <a class="glossaire" href="../glossaire/bavette.html" title="bavette">bavette</a> noire. 
+<br />La tête est foncée, avec la <a class="glossaire" href="../glossaire/calotte.html" title="calotte">calotte</a> grise, bordée de châtain s'étendant vers le bas de l'arrière du cou. Les <a class="glossaire" href="../glossaire/joue.html" title="joues">joues</a> et les côtés du cou sont blancs. Une bande noire traverse les yeux, et rejoint la <a class="glossaire" href="../glossaire/bavette.html" title="bavette">bavette</a> noire.
+<br />Le <a class="glossaire" href="../glossaire/bec.html" title="bec">bec</a> <span style="float:left;margin: 5px 5px 0px 5px"><a href="http://yvon.toupin.oiseaux.net/moineau.domestique.1.html#monde"><img src="http://yvon.toupin.oiseaux.net/images/moineau.domestique.yvto.1p.jpg" title="Moineau domestique © Yvon Toupin" alt="Moineau domestique" style="width:130px;height:121px;" /></a></span> conique est gris noir. Les yeux sont foncés. Les <a class="glossaire" href="../glossaire/patte.html" title="pattes">pattes</a> et les <a class="glossaire" href="../glossaire/doigt.html" title="doigts">doigts</a> sont brun clair.
+<br />En dehors du plumage nuptial, le mâle n'a pas de <a class="glossaire" href="../glossaire/bavette.html" title="bavette">bavette</a> noire et a le plumage plus terne. 
+<br />La femelle n'a pas les couleurs châtain et noires du mâle. Elle a la <a class="glossaire" href="../glossaire/calotte.html" title="calotte">calotte</a> brun grisâtre, et une bande sourcilière gris chamoisé. Les parties supérieures et les <a class="glossaire" href="../glossaire/aile.html" title="ailes">ailes</a> sont plus grises que chez le mâle. L'<a class="glossaire" href="../glossaire/abdomen.html" title="abdomen">abdomen</a> est blanchâtre. Le <a class="glossaire" href="../glossaire/bec.html" title="bec">bec</a> et les <a class="glossaire" href="../glossaire/patte.html" title="pattes">pattes</a> sont brun clair.
+<br /><br /><span class="F4b" id="Song">Chant : </span>Dès le début janvier, l'oiseau délimite son territoire du haut d'un toit ou d'une gouttière par son <a class="glossaire" href="../glossaire/chant.html" title="chant">chant</a>. De cette phrase peu mélodieuse, on retient plus aisément le cri caractéristique "tchip tchip" qui lui vaut son nom argotique de piaf.
+<br /><br /><span class="F4b" id="Habitat">Habitat : </span>Le moineau domestique vit dans <span style="float:right;margin: 0px 5px 5px 5px"><a href="http://rlortie.oiseaux.net/moineau.domestique.1.html#monde"><img src="http://rlortie.oiseaux.net/images/moineau.domestique.relo.1p.jpg" title="Moineau domestique © René Lortie" alt="Moineau domestique" style="width:130px;height:108px;" /></a></span> toutes sortes de zones modifiées par les humains, telles que les fermes, les zones résidentielles et urbaines. Il évite les forêts, les déserts et les zones herbeuses.
+<br /><br /><span class="F4b" id="Comportement">Comportements : </span>Le moineau domestique ne migre pas ; en automne, il erre en bandes dans la région. Commensal de l'homme, il dépend étroitement de sa présence.
+<br />Le moineau domestique se nourrit principalement sur le sol, en sautillant et en agitant la queue. Il se nourrit aussi dans les arbres et les broussailles, dans les zones urbaines ou rurales. Il capture des <a class="glossaire" href="../glossaire/insecte.html" title="insectes">insectes</a> en vol après une poursuite aérienne.
+<br />Le moineau domestique est très <a class="glossaire" href="../glossaire/gregaire.html" title="grégaire">grégaire</a> tout au long de l'année, formant de grands groupes en automne <span style="float:left;margin: 5px 5px 0px 5px"><a href="http://rachelita.oiseaux.net/moineau.domestique.1.html#monde"><img src="http://rachelita.oiseaux.net/images/moineau.domestique.rabi.1p.jpg" title="Moineau domestique © Rachel Bilodeau" alt="Moineau domestique" style="width:130px;height:79px;" /></a></span> et en hiver. Ils nichent en <a class="glossaire" href="../glossaire/colonie.html" title="colonies">colonies</a> de plusieurs couples sous un même toit de tuiles ou dans des creux et des trous. 
+<br />Ils dorment dans des <a class="glossaire" href="../glossaire/dortoir.html" title="dortoirs">dortoirs</a> communs, et peuvent se rassembler à plusieurs centaines d'oiseaux, serrés les uns contre les autres, formant un groupe bruyant. 
+<br />La <a class="glossaire" href="../glossaire/parade.html" title="parade nuptiale">parade nuptiale</a> est spectaculaire. Plusieurs mâles crient autour d'une seule femelle, avec le <a class="glossaire" href="../glossaire/bec.html" title="bec">bec</a> pointé vers le ciel, les <a class="glossaire" href="../glossaire/aile.html" title="ailes">ailes</a> ouvertes tombantes jusqu'au sol, la queue déployée et dressée. La femelle leur donne des coups de <a class="glossaire" href="../glossaire/bec.html" title="bec">bec</a> et <span style="float:right;margin: 0px 5px 5px 5px"><a href="http://www.oiseaux.net/photos/jean-louis.corsin/moineau.domestique.1.html#monde"><img src="http://www.oiseaux.net/photos/jean-louis.corsin/images/moineau.domestique.jlco.1p.jpg" title="Moineau domestique © Jean-Louis Corsin" alt="Moineau domestique" style="width:130px;height:117px;" /></a></span> ils s'envolent. Ces <a class="glossaire" href="../glossaire/parade.html" title="parades">parades</a> finissent souvent en bataille entre mâles, même en l'absence d'une femelle. Ils sont monogames pour une saison. 
+<br />Le moineau domestique protège son nid avec force. Il menace et attaque de nombreuses <a class="glossaire" href="../glossaire/espece.html" title="espèces">espèces</a> d'oiseaux entrant dans cet espace.
+<br /><br /><span class="F4b" id="Vol">Vol : </span>Le moineau domestique a un vol rapide et bondissant, alternant de rapides battements avec des périodes où les <a class="glossaire" href="../glossaire/aile.html" title="ailes">ailes</a> sont collées au corps.
+<br /><br /><span class="F4b" id="Reproduction">Nidification : </span>Au mois de mars, le moineau domestique construit son nid. Il place son nid dans les endroits les plus variés, à hauteur respectable, dans une cavité. Son nid (formé de paille, de feuilles, de laine, etc...) est construit sous les tuiles des maisons, sur un lampadaire ou bien contre un pan de mur recouvert de lierre. Il peut occuper également les nichoirs et les nids d'hirondelles dont il n'hésite pas à expulser les locataires. La femelle pond de 3 à 8 oeufs (22 mm X 15 mm) que les deux parents couvent durant 13 à 14 jours. Les jeunes éclos sont nourris d'abord de <a class="glossaire" href="../glossaire/larve.html" title="larves">larves</a> et d'<a class="glossaire" href="../glossaire/insecte.html" title="insectes">insectes</a>, puis, par la suite, en partie avec des graines ramollies dans le <a class="glossaire" href="../glossaire/jabot.html" title="jabot">jabot</a>. A 17 jours, les petits sont déjà capables de quitter le nid. Peu après, les parents nichent une nouvelle fois et ainsi quatre fois de suite.
+<br /><br /><span class="F4b" id="Regime">Régime : </span>Omnivore et opportuniste, il se nourrit pour l'essentiel de graines, d'<a class="glossaire" href="../glossaire/insecte.html" title="insectes">insectes</a>, de <a class="glossaire" href="../glossaire/larve.html" title="larves">larves</a>, de vers de terre et d'araignées, mais aussi de bourgeons de fruits, ce qui le rend impopulaire auprès des jardiniers.
+<br /><br /><span class="F4b" id="Protection">Protection / Menaces : </span>Même avec quelques déclins dus aux changements intervenus dans l'agriculture, le moineau domestique commun et largement répandu.
+<br /><br /><span class="F4b" id="References">Sources : </span></p>
+<ul><li class="li1"><a href="http://www.worldbirdnames.org">IOC World Bird List (v3.5)</a>, 
+				<i>Gill, F and D Donsker (Eds). 2012.</i></li></ul>
+<p class="F4a">
+<span class="espace">&nbsp;</span>
+<br /><span id="autresliens">
+	<br /><span class="F4b">Autres liens : </span>
+	<br /><span class="liste"><a class="externe" href="http://www.pouyo.com/bimestriel.html#num3">Fiche du moineau domestique</a> du site Pouyo et les oiseaux </span>
+	<br /><span class="liste">D'après Buffon : 
+<a class="interne" href="../buffon/tome3/moineau.html">
+Oiseaux étrangers qui ont rapport au Moineau
+</a></span>
+	<br /><span class="liste"><a class="externe" href="http://www.iucnredlist.org/details/full/106008367/0">Iucn</a></span>
+	<br /><span class="liste"><a class="externe" href="http://www.birdlife.org/datazone/speciesfactsheet.php?id=8367">Birdlife</a></span>
+	<br /><span class="liste">
+	<a class="externe" href="http://www.xeno-canto.org/species/Passer-domesticus">Xeno_Canto</a> </span>
+	<br /><span class="liste"><a class="externe" href="http://avibase.bsc-eoc.org/species.jsp?avibaseid=240E33900CE34D44">Avibase</a></span>
+	<br /><span class="liste"><a class="externe" href="http://www.hbw.com/species/house-sparrow-passer-domesticus">Hbw Alive</a></span></span></p>
+<br />
+<table class="tb_photos">
+<tr>
+	<td><p style="margin: 5px 5px 0px 0px;"><a href="http://www.oiseaux.net/photos/thierry.helsens/moineau.domestique.1.html#monde"><img class="Ph" src="http://www.oiseaux.net/photos/thierry.helsens/images/moineau.domestique.thhe.1p.jpg" title="Moineau domestique © Thierry Helsens" alt="Moineau domestique" style="width:130px;height:184px;" /></a></p></td>
+	<td><p style="margin: 5px 5px 0px 0px;"><a href="http://www.oiseaux.net/photos/jean-michel.fenerole/moineau.domestique.1.html#monde"><img class="Ph" src="http://www.oiseaux.net/photos/jean-michel.fenerole/images/moineau.domestique.jefe.1p.jpg" title="Moineau domestique © Jean-Michel Fenerole" alt="Moineau domestique" style="width:130px;height:132px;" /></a></p></td>
+	<td><p style="margin: 5px 5px 0px 0px;"><a href="http://www.oiseaux.net/photos/julien.daubignard/moineau.domestique.3.html#monde"><img class="Ph" src="http://www.oiseaux.net/photos/julien.daubignard/images/moineau.domestique.juda.3p.jpg" title="Moineau domestique © Julien Daubignard" alt="Moineau domestique" style="width:130px;height:102px;" /></a></p></td>
+	<td><p style="margin: 5px 5px 0px 0px;"><a href="http://alain.chappuis.oiseaux.net/moineau.domestique.1.html#monde"><img class="Ph" src="http://alain.chappuis.oiseaux.net/images/moineau.domestique.alch.1p.jpg" title="Moineau domestique © Alain Chappuis" alt="Moineau domestique" style="width:130px;height:234px;" /></a></p></td>
+	<td><p style="margin: 5px 5px 0px 0px;"><a href="http://roland.ripoll.oiseaux.net/moineau.domestique.1.html#monde"><img class="Ph" src="http://roland.ripoll.oiseaux.net/images/moineau.domestique.rori.1p.jpg" title="Moineau domestique © Roland Ripoll" alt="Moineau domestique" style="width:130px;height:61px;" /></a></p></td>
+</tr></table>
+<br />
+
+<p class="auteur">Fiche créée le 07/11/2002 par <a class="interne" href="http://didier.oiseaux.net/">Didier Collin</a></p>
+<br />
+<p class="pdp">	<a href="http://www.facebook.com/share.php?u=http://www.oiseaux.net/oiseaux/moineau.domestique.html">
+		<img src="http://www.oiseaux.net/images/icon/facebook16.png" width="16" height="16" alt="Partager cette page sur facebook" /></a>
+	<a href="http://www.oiseaux.net/rss/actu.xml"><img src="http://www.oiseaux.net/images/icon/rss16.png" width="16" height="16" alt="Flus rss" /></a>
+	<a href="http://www.twitter.com/oiseaux_net"><img src="http://www.oiseaux.net/images/icon/twitter16.png" width="16" height="16" alt="Twitter oiseaux.net" /></a>	
+	<a id="gplusone"></a>
+<br />
+	<a href="http://www.oiseaux.net/presentation.html">A propos</a> | 
+	<a href="http://www.oiseaux.net/util/nous.aider.html">Nous aider</a> | 
+	<a href="http://www.oiseaux.net/mentions.legales.html">Mentions légales</a> | 
+	<a href="http://www.oiseaux.net/sources.html">Sources</a> | 
+	<a href="http://www.oiseaux.net/contact.html">Contacts</a> |
+	<a class="externe" href="../oiseaux/imprime.cgi?NF=moineau.domestique&amp;REP=oiseaux">Version imprimable</a>
+	<br />
+	<span class="maj"><i>Mis à jour le <!-- maj -->06/01/2014 04:29:11<!-- /maj --> - © 1996-2014 <b><a class="interne" href="http://www.oiseaux.net/">Oiseaux.net</a></b></i></span>
+	<br />
+</p>
+
+</div><!-- Fin div fich_2 -->
+</div><!-- Fin div fich_1 -->
+
+<div id="PH">
+
+	<p style="margin: 5px 5px 0px 0px;">		
+		<a href="http://www.amazon.fr/gp/product/2603014668/ref=as_li_tf_il?ie=UTF8&amp;tag=oiseauxnet-21&amp;linkCode=as2&amp;camp=1642&amp;creative=6746&amp;creativeASIN=2603014668" onmouseover="MontrerMenu('sous_menu9');" onmouseout="CacherDelai();">
+		<img src="http://ws.assoc-amazon.fr/widgets/q?_encoding=UTF8&amp;Format=_SL160_&amp;ASIN=2603014668&amp;MarketPlace=FR&amp;ID=AsinImage&amp;WS=1&amp;tag=oiseauxnet-21&amp;ServiceVersion=20070822" alt="Les moineaux : Description, répartition, habitat, moeurs, observation" class="photos" style="width:100px;height:133px" /></a>
+			<img src="http://www.assoc-amazon.fr/e/ir?t=oiseauxnet-21&amp;l=as2&amp;o=8&amp;a=2603014668" width="1" height="1" alt="" style="border:none !important; margin:0px !important;" />			
+	</p>
+	<div id="sous_menu9" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();" style="position:absolute;left:115px;top:20px;width:160px;height:150px;overflow:visible;visibility:hidden;">
+	<p class="liv">
+		Les moineaux : Description, répartition, habitat, moeurs, observation<br />par <i> Georges Olioso, Mireille Olioso</i><br /><a href="http://www.amazon.fr/gp/product/2603014668/ref=as_li_tf_il?ie=UTF8&amp;tag=oiseauxnet-21&amp;linkCode=as2&amp;camp=1642&amp;creative=6746&amp;creativeASIN=2603014668">
+			 En commandant un livre chez notre partenaire, vous contribuez au developpement de oiseaux.net
+		</a>
+		<br />
+		<a href="http://www.amazon.fr/gp/product/2603014668/ref=as_li_tf_il?ie=UTF8&amp;tag=oiseauxnet-21&amp;linkCode=as2&amp;camp=1642&amp;creative=6746&amp;creativeASIN=2603014668"><img class="photos" src="http://www.oiseaux.net/images/cnd_amazon.gif" alt="" title="Commandez" /></a>
+	</p>
+</div>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://rene.dumoulin.oiseaux.net/moineau.domestique.1.html#monde"><img class="Ph" src="http://rene.dumoulin.oiseaux.net/images/moineau.domestique.redu.1p.jpg" title="Moineau domestique © René Dumoulin" alt="Moineau domestique" style="width:130px;height:181px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://www.oiseaux.net/photos/michel.giraud-audine/moineau.domestique.1.html#monde"><img class="Ph" src="http://www.oiseaux.net/photos/michel.giraud-audine/images/moineau.domestique.miga.1p.jpg" title="Moineau domestique © Michel Giraud-Audine" alt="Moineau domestique" style="width:130px;height:180px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://michel.lamarche.oiseaux.net/moineau.domestique.1.html#monde"><img class="Ph" src="http://michel.lamarche.oiseaux.net/images/moineau.domestique.mila.1p.jpg" title="Moineau domestique © Michel Lamarche" alt="Moineau domestique" style="width:130px;height:157px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://georges.olioso.oiseaux.net/moineau.domestique.1.html#monde"><img class="Ph" src="http://georges.olioso.oiseaux.net/images/moineau.domestique.geol.1p.jpg" title="Moineau domestique © Georges Olioso" alt="Moineau domestique" style="width:130px;height:88px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://pat.marques.oiseaux.net/moineau.domestique.1.html#monde"><img class="Ph" src="http://pat.marques.oiseaux.net/images/moineau.domestique.pama.1p.jpg" title="Moineau domestique © Patrick Marques" alt="Moineau domestique" style="width:130px;height:99px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://yann.cambon.oiseaux.net/moineau.domestique.3.html#monde"><img class="Ph" src="http://yann.cambon.oiseaux.net/images/moineau.domestique.yaca.3p.jpg" title="Moineau domestique © Yann Cambon" alt="Moineau domestique" style="width:130px;height:82px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://www.oiseaux.net/photos/jean.charennat/moineau.domestique.1.html#monde"><img class="Ph" src="http://www.oiseaux.net/photos/jean.charennat/images/moineau.domestique.jech.1p.jpg" title="Moineau domestique © Jean Charennat" alt="Moineau domestique" style="width:130px;height:136px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://www.oiseaux.net/photos/jules.fouarge/moineau.domestique.1.html#monde"><img class="Ph" src="http://www.oiseaux.net/photos/jules.fouarge/images/moineau.domestique.jufo.1p.jpg" title="Moineau domestique © Jules Fouarge" alt="Moineau domestique" style="width:130px;height:123px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://www.oiseaux.net/photos/marc.fasol/moineau.domestique.1.html#monde"><img class="Ph" src="http://www.oiseaux.net/photos/marc.fasol/images/moineau.domestique.mafa.1p.jpg" title="Moineau domestique © Marc Fasol" alt="Moineau domestique" style="width:130px;height:114px;" /></a></p>
+<p style="margin: 5px 5px 0px 0px;"><a href="http://hans.spiecker.oiseaux.net/moineau.domestique.1.html#monde"><img class="Ph" src="http://hans.spiecker.oiseaux.net/images/moineau.domestique.hasp.1p.jpg" title="Moineau domestique © Hans Spiecker" alt="Moineau domestique" style="width:130px;height:146px;" /></a></p>
+
+</div><!-- Fin div PH -->
+
+<div id="PH2" style="height: 1606px;"> </div><!-- Fin div PH2 -->
+
+<div id="t2"><p>Moineau domestique</p></div>
+
+<div id="cherche" class="Ch">
+ <form id="search" action="http://www.oiseaux.net/search.cgi" method="post" class="Fch">
+ <p>
+ <input name="Q" size="15" value="" type="text" class="qu" />
+ <input name="utf8" value="ok" type="hidden" />
+ <input value="OK" type="submit" class="ok" />
+ </p>
+ </form>
+</div>
+
+<div id="logo"><a href="http://www.oiseaux.net/" title="Accueil oiseaux.net"><img src="http://www.oiseaux.net/images/oiseaux.jpg" alt="Oiseaux" /></a></div>
+<!-- Aide --> <!-- /Aide -->
+<!-- Menu -->
+<div id="ois_menu_1">
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		preChargement();
+	/* ]]> */
+	</script>
+	<p id="menu1" class="menu" onmouseover="MontrerMenu('sous_menu1');" onmouseout="CacherDelai();">
+		<a href="http://www.oiseaux.net/oiseaux/france.html" onmouseover="MontrerMenu('sous_menu1');"> Fiches<span>&nbsp;:</span></a>
+	</p>
+	<ul id="sous_menu1" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+		<li>Oiseaux de France</li>
+		<li><a href="http://www.oiseaux.net/oiseaux/france.html">Nom commun <span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/aves/france.html">Nom scientifique <span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/birds/france.html">Nom anglais <span>&nbsp;;</span></a></li>
+		<li><a class="menul" href="http://www.oiseaux.net/oiseaux/europe.html">Oiseaux d'europe <span>&nbsp;;</span></a></li>
+		<li><a class="menul" href="http://www.oiseaux.net/oiseaux/index.html">Oiseaux du monde (par famille/région)<span>&nbsp;;</span></a></li>
+		<li><a class="menul" href="http://www.oiseaux.net/identifier.cgi">Identifier un oiseau<span>&nbsp;;</span></a></li>
+	</ul>
+
+	<p id="menu2" class="menu" onmouseover="MontrerMenu('sous_menu2');" onmouseout="CacherDelai();">
+		<a href="http://www.oiseaux.net/dossiers/index.html" onmouseover="MontrerMenu('sous_menu2');"> Dossiers <span>&nbsp;:</span></a>
+	</p>
+	<ul id="sous_menu2" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+		<li><a href="http://www.oiseaux.net/dossiers/protection/">Comment aider les oiseaux<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/dossiers/gilbert.blaising/">Lorraine et histoires d'oiseaux<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/dossiers/patrick.fichter/">Au fil de la plume<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/dossiers/yves.thonnerieux/">Natur'ailes vous raconte.<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/dossiers/gaston.gast/">Les plumes.<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/dossiers/corneille.bigaree/">La corneille bigarée<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/dossiers/jean-michel.peers/">Brèves de terrain<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.hirondelles.oiseaux.net/">Les hirondelles<span>&nbsp;;</span></a></li>
+		<li><a href="http://chouette.oiseaux.net/">La chouette d'Hémilly<span>&nbsp;;</span></a></li>
+	</ul>
+
+	<p id="menu3" class="menu" onmouseover="MontrerMenu('sous_menu3');" onmouseout="CacherDelai();">
+		<a href="http://www.oiseau.info/index.html" onmouseover="MontrerMenu('sous_menu3');"> L'oiseau <span>&nbsp;:</span></a>
+	</p>
+	<ul id="sous_menu3" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+		<li><a href="http://www.oiseau.info/origine.des.oiseaux.html">L'origine de l'oiseau.<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseau.info/classification.html">Classification des oiseaux.<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseau.info/topographie.d.un.oiseau.html">Topographie d'un oiseau.<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseau.info/le.squelette.html">Anatomie et physiologie<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseau.info/formation.des.couples.html">Reproduction<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseau.info/cycle.annuel.html">L'oiseau et son comportement.<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseau.info/distribution.population.html">L'oiseau et son environnement.<span>&nbsp;;</span></a></li>
+	</ul>
+
+	<p id="menu4" class="menu" onmouseover="MontrerMenu('sous_menu4');" onmouseout="CacherDelai();">
+		<a href="http://photos.oiseaux.net/index.html" onmouseover="MontrerMenu('sous_menu4');"> Photos <span>&nbsp;:</span></a>
+	</p>
+	<ul id="sous_menu4" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+		<li><a href="http://www.oiseaux.net/photos/oiseaux.france.index.html">Photos d'oiseaux de France<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/photos/index.html">Photos d'oiseaux du Monde<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/photos/photographes.html">Classement par photographe.<span>&nbsp;;</span></a></li>
+		<li><a href="http://membre.oiseaux.net/" rel="nofollow">Espace membre<span>&nbsp;;</span></a></li>
+	</ul>
+
+	<p id="menu5" class="menu" onmouseover="MontrerMenu('sous_menu5');" onmouseout="CacherDelai();">
+		<a href="http://livres.oiseaux.net/" onmouseover="MontrerMenu('sous_menu5');"> Livres <span>&nbsp;:</span></a>
+	</p>
+	<ul id="sous_menu5" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+		<li><a href="http://livres.oiseaux.net/index.html">Une sélection de livres sur les oiseaux <span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/buffon/buffon.html">Buffon et l'Histoire naturelle des oiseaux<span>&nbsp;;</span></a></li>
+	</ul>
+
+	<p id="menu6" class="menu" onmouseover="MontrerMenu('sous_menu6');" onmouseout="CacherDelai();">
+		<a href="http://www.oiseaux.net/jeux/index.html"> Jeux <span>&nbsp;:</span></a>
+	</p>
+	<ul id="sous_menu6" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+		<li>Le coin des poussins</li>
+		<li><a href="http://www.oiseaux.net/jeux/devine.html">L'oiseau mystère<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/jeux/tete.de.linotte.html">Tête de linotte<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/jeux/oiseau.chanteur.html">Oiseau chanteur<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/jeux/puzzle.mesange.html">Puzzle<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/jeux/mahjongg.html">Mah Jongg<span>&nbsp;;</span></a></li>
+		<li><a class="menul" href="http://www.oiseaux.net/jeux/coloriages/">Coloriages<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.pouyo.com/">Pouyo et les oiseaux<span>&nbsp;;</span></a></li>
+	</ul>
+
+	<p id="menu7" class="menu" onmouseover="MontrerMenu('sous_menu7');" onmouseout="CacherDelai();">
+		<a href="javascript:void(0)"> Utile <span>&nbsp;:</span></a>
+	</p>
+	<ul id="sous_menu7" class="sous_menu" onmouseover="AnnulerCacher();" onmouseout="CacherDelai();">
+		<li><a href="http://www.oiseaux.net/util/maj.html">Nouveautés<span>&nbsp;;</span></a></li>
+		<li><a href="http://annuaire.oiseaux.net/">L'annuaire des oiseaux<span>&nbsp;;</span></a></li>
+		<li><a href="http://glossaire.oiseaux.net/">Glossaire<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/bannieres.html">Nos bannières<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/util/livre.d.or.cgi">Livre d'or<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/sources.html">Sources<span>&nbsp;;</span></a></li>
+		<li><a class="menul" href="http://www.oiseaux.net/presentation.html">Qui sommes nous ?<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/util/nous.aider.html">Comment nous aider ?<span>&nbsp;;</span></a></li>
+		<li><a href="http://www.oiseaux.net/contact.html">Contact<span>&nbsp;;</span></a></li>
+		<li><a class="menul" href="http://membre.oiseaux.net/">Espace membre<span>&nbsp;;</span></a></li>
+	</ul>
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+Chargement();
+/* ]]> */
+</script>
+<!-- /Menu -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-105740-4']);
+	_gaq.push(['_setDomainName', 'none']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_trackPageview']);
+	
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	
+	window.___gcfg = {lang: 'fr'};
+	(function() {
+		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	})();
+	var ois_plus1 = document.createElement('g:plusone');
+	ois_plus1.setAttribute("align","left");
+	ois_plus1.setAttribute("size","small");
+	ois_plus1.setAttribute("annotation","none");
+	document.getElementById("gplusone").appendChild(ois_plus1);
+/*]]>*/
+</script>
+</div>
+</body>
+</html>
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>401 Authorization Required</title>
+</head><body>
+<h1>Authorization Required</h1>
+<p>This server could not verify that you
+are authorized to access the document
+requested.  Either you supplied the wrong
+credentials (e.g., bad password), or your
+browser doesn't understand how to supply
+the credentials required.</p>
+</body></html>
