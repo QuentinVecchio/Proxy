@@ -41,11 +41,14 @@ void recupHost(char *requete, char *lien)
 //Cette fonction renvoie le nom de la page web voulu.
 void recupTitrePage(char *requete, char *nom)
 {
-    printf("test");
     char *pointeur, *repere;
     int i=0;
-    pointeur =  strstr(requete,"GET ");
+    pointeur =  strstr(requete,"GET");
     repere = strstr(requete,"HTTP/1.1");
+    if(repere == NULL)
+    {
+	repere = strstr(requete,"HTTP/1.0");
+    }
     if(pointeur != NULL)
     {
         pointeur+= 4;
@@ -120,11 +123,11 @@ char *contenuFichier(char *lienFichier,int* l)
 //Cette fonction crée une requete HTTP plus simple
 void nettoyageHTTP(char *requete)
 {
-    char nom[1024];
-    char host[1024];
+    char nom[1024*1024];
+    char host[1024*1024];
     recupTitrePage(requete,nom);
     recupHost(requete,host);
-    sprintf(requete,"GET %s HTTP/1.0\r\n\r\n",nom);
+    sprintf(requete,"GET %s HTTP/1.1\r\nHost : %s\r\n\r\n",nom,host);
 }
 //Fonction logs
 //Prend en parametre l'host, la page web, l'adresse IP du client
