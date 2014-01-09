@@ -117,17 +117,6 @@ char *contenuFichier(char *lienFichier,int* l)
     }
     return contenu;
 }
-//Fonction nettoyageHTTP
-//Prend en parametre une requete HTTP
-//Cette fonction crée une requete HTTP plus simple
-void nettoyageHTTP(char *requete)
-{
-    char nom[1024*1024];
-    char host[1024*1024];
-    recupTitrePage(requete,nom);
-    recupHost(requete,host);
-    sprintf(requete,"GET %s HTTP/1.1\r\nHost : %s\r\n\r\n",nom,host);
-}
 //Fonction logs
 //Prend en parametre l'host, la page web, l'adresse IP du client
 //Cette fonction ajoute une entrée dans les fichiers de logs
@@ -135,8 +124,11 @@ void logs(char *host, char*nom, char *ip)
 {
     FILE *f = NULL;
     f = fopen("Conf/Logs/logs.csv","a+");
-    time_t t = time(NULL);
-    fprintf(f,"%s;%s;%s;%s",host,nom,ip,ctime(&t));
+    if(f == NULL)
+    {
+	time_t t = time(NULL);
+    	fprintf(f,"%s;%s;%s;%s",host,nom,ip,ctime(&t));
+    }
     fclose(f);
 }
 //-------------------------------------------Fonctions thread---------------------------------
@@ -170,7 +162,7 @@ void *client(void *arg)
 	//Extraction de l'extension de la page web demandée
     recupExtension(nomPage,extension);
 	//Ajout dans les logs
-    //logs(host,nomPage,inet_ntoa(structSock->sockAddrClient->sin_addr));
+    logs(host,nomPage,inet_ntoa(structSock->sockAddrClient->sin_addr));
 	if(*sockServeurWeb != INVALID_SOCKET)
 	{
 		/*//Récuperation de l'adresse IP associé à l'host
@@ -205,7 +197,8 @@ void *client(void *arg)
             closesocket(*structSock->socketClient);
             closesocket(*sockServeurWeb);
             //Libération de la mémoire
-            free(sockServeurWeb);
+            free(reponseServeur);
+	    free(sockServeurWeb);
             free(sockAddrServeurWeb);
             free(structSock->socketClient);
             free(structSock->sockAddrClient);
@@ -216,9 +209,8 @@ void *client(void *arg)
         }
 	//Vérification téléchargement
 	     int isDownload = isAuthorized(host,inet_ntoa(structSock->sockAddrClient->sin_addr),extension);
-		printf("Valeur de retour de la fonction:%d\n\n", isDownload);
-        if(isDownload == 3)
-        {
+             if(isDownload == 3)
+             {
             	printf("Telechargement detecte => REFUS\n");
         	//Envoie de la page au client interdisant le téléchargement
         	int l;
@@ -241,7 +233,8 @@ void *client(void *arg)
             	closesocket(*structSock->socketClient);
             	closesocket(*sockServeurWeb);
             	//Libération de la mémoire
-            	free(sockServeurWeb);
+            	free(reponseServeur);
+		free(sockServeurWeb);
             	free(sockAddrServeurWeb);
             	free(structSock->socketClient);
             	free(structSock->sockAddrClient);
@@ -299,21 +292,15 @@ void *client(void *arg)
                 printf("Page web trouvé dans le cache.");
                 //Envoie de la page au client
                 int l = 0,envoie = 0,e;
-                //char* pageCache = contenuFichier("./tmp/coucou.gris.redu.1p.tmp",&l);
                 char* pageCache = contenuFichier(elt->path,&l);
                 //printf("%s\n",pageCache);
                 printf(" Envoie de la page ...%d \n", l);
-                //while(envoie < l)
-                //{
-                    if((e=send(*structSock->socketClient,pageCache,l,0)) <= 0)
-                    {
+                if((e=send(*structSock->socketClient,pageCache,l,0)) <= 0)
+                {
                         printf("\nERRREUR envoie de la page web au client\n");
                         break;
-                    }
-							//printf("valeur de e:%d\n\n", e);
-                   // envoie += e;
-                //}
-                printf("OK\n");
+                }
+		printf("OK\n");
                 free(pageCache);
                 //On quitte la boucle
                 break;
@@ -332,15 +319,8 @@ void *client(void *arg)
                 //Connexion au serveur web demandé
                 printf("Connexion au serveur distant ..\n");
                 connect(*sockServeurWeb,(SOCKADDR*)sockAddrServeurWeb,sockAddrServeurWebSize);
-                //Nettoyage HTTP
-					//printf("%s\n\n", requeteHTTPClient);
-                //nettoyageHTTP(requeteHTTPClient);
                 //Envoie de la requete HTTP au serveur web
-
                 printf("Envoie de la requete http ... \n\n");
-					printf("%s\n\n", requeteHTTPClient);
-
-
                 if(send(*sockServeurWeb,requeteHTTPClient,sizeof(requeteHTTPClient),0) <= 0)
                 {
                     printf("ERREUR d'envoie de la requete HTTP au serveur.\n");
@@ -355,51 +335,27 @@ void *client(void *arg)
                     recu = 0;
                     int envoie = 0,e = 0;
                     FILE *f = NULL;
-                    f = fopen(element->path,"wb");
-							printf("Ouverture\n");
+                    f = fopen(element->path,"wb");;
                     if(f != NULL)
                     {
                         //On accede a internet on decremente notre socket de connection externe
                         sem_wait(&semaphoreExterne);
-
-
-		printf("Telecharge\n");
+			printf("Téléchargement de la page web ... ");
                         //On telecharge la page
                         while((recu = read(*sockServeurWeb,reponseServeur,1024)) > 0)
                         {
-                            //length += recu;
-									 reponseServeur[recu] = '\0';
-									// int res = fprintf(f,"%s",reponseServeur);
-										int res = fwrite(reponseServeur, sizeof(char)*recu, 1, f);
-										//printf("Valeur de res:%d et valeur de recu: %d\n\n", res, recu);
-                            //reponseServeur = realloc(reponseServeur,(1024 + length)*sizeof(char));
-                        }
+			 	reponseServeur[recu] = '\0';
+				int res = fwrite(reponseServeur, sizeof(char)*recu, 1, f);
+		        }
                         //On a fini de se connecter à internet on increment la socket de connection externe
                         sem_post(&semaphoreExterne);
-                        printf("Téléchargement page ...\n");
-								
-                        //fprintf(f,"%s",reponseServeur);
                         printf("OK\n");
-
-
-                        /*while(envoie < length)
-                         {
-                         if((e=send(*structSock->socketClient,reponseServeur + envoie,1024,0)) <= 0)
-                         {
-                         printf("\nERRREUR envoie de la page web au client\n");
-                         break;
-                         }
-                         envoie += e;
-                         }
-                       	send(*structSock->socketClient,reponseServeur,sizeof(char)*length,0);
-                        closesocket(*sockServeurWeb);*/
                     }
                     //Ajout dans le cache
                     printf("Ajout de la page web au cache ...\n");
                     addEltCache(element);
                     printf("OK\n");
                     fclose(f);
-                   // break;
                 }
             }
         }
@@ -410,15 +366,16 @@ void *client(void *arg)
 	}
 	printf("Fin de traitement.\n");
 	//Fermeture socket
-    closesocket(*sockServeurWeb);
-    closesocket(*structSock->socketClient);
+    	closesocket(*sockServeurWeb);
+    	closesocket(*structSock->socketClient);
 	//Libération de la mémoire
-    free(sockServeurWeb);
-    free(sockAddrServeurWeb);
-    free(structSock->socketClient);
-    free(structSock->sockAddrClient);
+	free(reponseServeur);
+    	free(sockServeurWeb);
+    	free(sockAddrServeurWeb);
+    	free(structSock->socketClient);
+    	free(structSock->sockAddrClient);
 	//Libération semaphore
-    sem_post(&semaphoreInterne);
+    	sem_post(&semaphoreInterne);
 	//Fin de traitement
     return NULL;
 }

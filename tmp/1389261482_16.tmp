@@ -1,0 +1,14 @@
+HTTP/1.1 304 Not Modified
+Server: nginx/0.8.55
+Content-Type: image/png
+Last-Modified: Fri, 12 Jul 2013 12:34:04 GMT
+Expires: Thu, 30 Jan 2014 12:27:06 GMT
+Cache-Control: max-age=2592000
+Accept-Ranges: bytes
+Date: Thu, 09 Jan 2014 09:58:01 GMT
+X-Varnish: 1028688027 3770620384
+Age: 768655
+Via: 1.1 varnish
+Connection: keep-alive
+keep-alive: timeout=3
+

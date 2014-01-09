@@ -1,0 +1,16 @@
+HTTP/1.1 302 Found
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Content-Type: text/html; charset=utf-8
+Expires: -1
+Location: http://ww84.smartadserver.com/call2/pubjallajaxnc/2368/17155/2077,2078,647,2163,630,12340,632,1075,1446,651,646,17532/7730505947/?
+P3P: CP="BUS CUR CONo FIN IVDo ONL OUR PHY SAMo TELo"
+Set-Cookie: TestIfCookie=ok; domain=smartadserver.com; path=/
+Set-Cookie: TestIfCookieP=ok; domain=smartadserver.com; expires=Thu, 08-Jan-2015 23:00:00 GMT; path=/
+Set-Cookie: pbw=%24b%3d12260%3b%24o%3d12100; domain=smartadserver.com; expires=Tue, 29-Dec-2015 23:00:00 GMT; path=/
+Date: Thu, 09 Jan 2014 09:58:07 GMT
+Content-Length: 247
+
+<html><head><title>Object moved</title></head><body>
+<h2>Object moved to <a href="http://ww84.smartadserver.com/call2/pubjallajaxnc/2368/17155/2077,2078,647,2163,630,12340,632,1075,1446,651,646,17532/7730505947/?">here</a>.</h2>
+</body></html>
