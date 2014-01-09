@@ -1,0 +1,35 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Content-Type: application/javascript; charset=utf-8
+Expires: -1
+P3P: CP="BUS CUR CONo FIN IVDo ONL OUR PHY SAMo TELo"
+Set-Cookie: TestIfCookie=ok; domain=smartadserver.com; path=/
+Set-Cookie: TestIfCookieP=ok; domain=smartadserver.com; expires=Thu, 08-Jan-2015 23:00:00 GMT; path=/
+Set-Cookie: pbw=%24b%3d12260%3b%24o%3d12100; domain=smartadserver.com; expires=Tue, 29-Dec-2015 23:00:00 GMT; path=/
+Set-Cookie: pid=3356337919294587906; domain=smartadserver.com; expires=Tue, 29-Dec-2015 23:00:00 GMT; path=/
+Set-Cookie: pdomid=2; domain=smartadserver.com; expires=Tue, 29-Dec-2015 23:00:00 GMT; path=/
+Set-Cookie: sasd2=q=%24qc%3d1313276323%3b%24ql%3dmedium%3b%24qpc%3d54000%3b%24qpp%3d0%3b%24qt%3d184_1714_14707t&c=1&a=-129479433&l=&lo=&lt=635248618887819273; domain=smartadserver.com; expires=Fri, 10-Jan-2014 09:58:08 GMT; path=/
+Set-Cookie: sasd=%24qc%3d1313276323%3b%24ql%3dmedium%3b%24qpc%3d54000%3b%24qpp%3d0%3b%24qt%3d184_1714_14707t; domain=smartadserver.com; expires=Fri, 10-Jan-2014 09:58:08 GMT; path=/
+Set-Cookie: vs=2368=5798098; domain=smartadserver.com; path=/
+Date: Thu, 09 Jan 2014 09:58:08 GMT
+Content-Length: 2988
+
+var sas_manager = {formats: {
+f630: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/2946038/show1.asp?2946038;17155;3356337919294587906;7730505947;S";}},
+f2078: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/2946382/show1.asp?2946382;17155;3356337919294587906;7730505947;S";}},
+f2077: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/2946042/show1.asp?2946042;17155;3356337919294587906;7730505947;S";}},
+f651: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/2946039/show1.asp?2946039;17155;3356337919294587906;7730505947;S";}},
+f632: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/2946040/show2.asp?2946040;17155;3356337919294587906;7730505947;S";}},
+f1075: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/2946041/show2.asp?2946041;17155;3356337919294587906;7730505947;S";}},
+f2163: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/1508863/show15.asp?1508863;17155;3356337919294587906;7730505947;S";}},
+f646: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/2499179/show1.asp?2499179;17155;3356337919294587906;7730505947;S";}},
+f12340: {scriptType: function() {return 'script';},scriptSrc: function() {return "http://ww84.smartadserver.com/diff/84/1478309/show26.asp?1478309;17155;3356337919294587906;7730505947;S";}}},
+exists: function(formatId) { return 'object' == typeof (this.formats['f' + formatId]);},
+noad: function(formatid) {var pixel=new Image();
+pixel.src="http://ww84.smartadserver.com/h/aip?siteid=2368&pgid=17155&fmtid=" + formatid + "&tmstp=7730505947&visit=s&ckid=3356337919294587906&pubid=2&statid=0&systgt=%24qc%3d1313276323%3b%24ql%3dmedium%3b%24qpc%3d54000%3b%24qpp%3d0%3b%24qt%3d184_1714_14707t%3b%24b%3d12260%3b%24o%3d12100&tgt=&rnd=" + Math.round(Math.random() * 10000000000) + "";},
+render: function(formatId) {if (this.exists(formatId)) {document.write(this.formats['f' + formatId].scriptSrc());}else{
+this.noad(formatId);
+}},
+renderAll: function () { for (i = 0; i < sas_unrenderedFormats.length; i++) { var f_id = sas_unrenderedFormats[i]; if (this.exists(f_id)) { scriptType = this.formats['f' + f_id].scriptType(); scriptURL = this.formats['f' + f_id].scriptSrc(); scriptWidth = 0; scriptHeight = 0; if (scriptType == 'iframe') {scriptWidth = this.formats['f' + f_id].scriptWidth(); scriptHeight = this.formats['f' + f_id].scriptHeight();} sas_render(f_id, scriptURL, scriptType, scriptWidth, scriptHeight); } } } };
+if (typeof (sas_unrenderedFormats) == 'undefined') {sas_unrenderedFormats = new Array();}sas_manager.renderAll();
